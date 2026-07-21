@@ -1,7 +1,6 @@
 # QRKeeper
 
 QRKeeper 是一款跨平台二维码收集与管理工具，支持 Windows 桌面端和 Android 端。它可以保存二维码内容与二维码图片，提供扫码、图片导入、备份恢复、局域网同步和在线更新检查等功能。
-
 [English](./README.md)
 
 ## 功能特性
