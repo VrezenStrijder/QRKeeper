@@ -1,7 +1,7 @@
-# QRKeeper
+# QRKeeper  
+[中文](./README_cn.md)
 
 QRKeeper is a cross-platform QR code collection and management tool for Windows desktop and Android. It stores QR content together with generated QR images and supports scanning, image import, backup/restore, LAN sync, and online update checks.  
-[中文](./README_cn.md)
 
 ## Features
 
