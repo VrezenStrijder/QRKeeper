@@ -1,0 +1,792 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:QRKeeper.Android.ViewModels"
+             xmlns:models="using:QRKeeper.Core.Models"
+             xmlns:controls="using:QRKeeper.Android.Controls"
+             xmlns:controlsPrimitives="using:Avalonia.Controls.Primitives"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Name="Root"
+             x:Class="QRKeeper.Android.Views.MainView"
+             x:DataType="vm:MainViewModel"
+             FontFamily="sans-serif">
+    <Grid>
+    <Border Classes="app-shell"/>
+    <Grid RowDefinitions="Auto,*,Auto" Margin="{DynamicResource AppPagePadding}">
+        <Grid ColumnDefinitions="*,Auto"
+              IsVisible="{Binding IsRecordsSelected}">
+            <StackPanel>
+                <TextBlock Classes="page-title" Text="{Binding AppName}"/>
+                <TextBlock Text="{Binding StatusText}" Classes="secondary"/>
+            </StackPanel>
+            <Button Grid.Column="1"
+                    Classes="icon-button"
+                    ToolTip.Tip="{Binding RefreshText}"
+                    Command="{Binding RefreshCommand}">
+                <materialIcons:MaterialIcon Kind="Refresh"
+                                            Width="16"
+                                            Height="16"
+                                            Foreground="{DynamicResource AppAccentBrush}"/>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0,14,0,14">
+            <Grid x:Name="RecordsLayoutRoot"
+                  Classes="wide-records"
+                  IsVisible="{Binding IsRecordsSelected}"
+                  ColumnSpacing="12">
+                <Grid RowDefinitions="Auto,*"
+                      IsVisible="{Binding IsRecordsListVisible}">
+                    <TextBox Classes="form-field"
+                             Watermark="{Binding SearchRecordsText}"
+                             Text="{Binding SearchText, Mode=TwoWay}"/>
+
+                    <Grid Grid.Row="1" Margin="0,10,0,0">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <controls:MobileReorderableItemsControl Classes="records-list"
+                                                                     ItemsSource="{Binding RecordItems}"
+                                                                     ReorderPreviewChanged="RecordList_OnReorderPreviewChanged"
+                                                                     ReorderCompleted="RecordList_OnReorderCompleted">
+                                <controls:MobileReorderableItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:AndroidRecordListItemViewModel">
+                                    <Grid Classes="record-item"
+                                          RowDefinitions="Auto,Auto,Auto">
+                                        <Path Grid.Row="0"
+                                              Classes="reorder-insert-line before"
+                                              Data="M 0 2 L 1000 2"
+                                              Stretch="Fill"
+                                              IsVisible="{Binding IsReorderBefore}"/>
+                                        <Border Grid.Row="1"
+                                                Classes="record-card"
+                                                Classes.selected="{Binding IsSelected}"
+                                                Classes.reordering="{Binding IsReordering}"
+                                                Tapped="RecordCard_OnTapped">
+                                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                                <Border Classes="record-drag-handle"
+                                                        VerticalAlignment="Center"
+                                                        Margin="0,0,10,0">
+                                                    <Grid>
+                                                        <materialIcons:MaterialIcon Kind="DragVertical"
+                                                                                    Width="18"
+                                                                                    Height="18"
+                                                                                    HorizontalAlignment="Center"
+                                                                                    VerticalAlignment="Center"
+                                                                                    Foreground="{DynamicResource AppTextMutedBrush}"/>
+                                                        <controlsPrimitives:Thumb Classes="record-drag-thumb"/>
+                                                    </Grid>
+                                                </Border>
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="{Binding Record.Name}"
+                                                               FontWeight="SemiBold"
+                                                               TextTrimming="CharacterEllipsis"/>
+                                                    <TextBlock Text="{Binding Record.ContentType}"
+                                                               Classes="caption"/>
+                                                    <TextBlock Text="{Binding Record.Content}"
+                                                               Opacity="0.7"
+                                                               TextTrimming="CharacterEllipsis"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="2"
+                                                            Orientation="Horizontal"
+                                                            Spacing="6"
+                                                            VerticalAlignment="Center"
+                                                            Margin="10,0,0,0">
+                                                    <Button Classes="icon-button mini"
+                                                            ToolTip.Tip="{Binding #Root.DataContext.SaveQrImageText}"
+                                                            Command="{Binding #Root.DataContext.SaveRecordQrImageCommand}"
+                                                            CommandParameter="{Binding Record}">
+                                                        <materialIcons:MaterialIcon Kind="ContentSave"
+                                                                                    Width="14"
+                                                                                    Height="14"
+                                                                                    Foreground="{DynamicResource AppAccentBrush}"/>
+                                                    </Button>
+                                                    <Button Classes="icon-button mini"
+                                                            ToolTip.Tip="{Binding #Root.DataContext.ShareQrImageText}"
+                                                            Command="{Binding #Root.DataContext.ShareRecordQrImageCommand}"
+                                                            CommandParameter="{Binding Record}">
+                                                        <materialIcons:MaterialIcon Kind="ShareVariant"
+                                                                                    Width="14"
+                                                                                    Height="14"
+                                                                                    Foreground="{DynamicResource AppAccentBrush}"/>
+                                                    </Button>
+                                                    <Button Classes="icon-button mini"
+                                                            ToolTip.Tip="{Binding #Root.DataContext.MoveUpText}"
+                                                            Command="{Binding #Root.DataContext.MoveRecordUpCommand}"
+                                                            CommandParameter="{Binding Record}">
+                                                        <materialIcons:MaterialIcon Kind="ChevronUp"
+                                                                                    Width="14"
+                                                                                    Height="14"
+                                                                                    Foreground="{DynamicResource AppTextMutedBrush}"/>
+                                                    </Button>
+                                                    <Button Classes="icon-button mini"
+                                                            ToolTip.Tip="{Binding #Root.DataContext.MoveDownText}"
+                                                            Command="{Binding #Root.DataContext.MoveRecordDownCommand}"
+                                                            CommandParameter="{Binding Record}">
+                                                        <materialIcons:MaterialIcon Kind="ChevronDown"
+                                                                                    Width="14"
+                                                                                    Height="14"
+                                                                                    Foreground="{DynamicResource AppTextMutedBrush}"/>
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                        <Path Grid.Row="2"
+                                              Classes="reorder-insert-line after"
+                                              Data="M 0 2 L 1000 2"
+                                              Stretch="Fill"
+                                              IsVisible="{Binding IsReorderAfter}"/>
+                                    </Grid>
+                                </DataTemplate>
+                                </controls:MobileReorderableItemsControl.ItemTemplate>
+                            </controls:MobileReorderableItemsControl>
+                        </ScrollViewer>
+
+                        <Button Classes="fab"
+                                Width="56"
+                                Height="56"
+                                CornerRadius="28"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Margin="0,0,12,12"
+                                Command="{Binding CreateRecordCommand}">
+                            <materialIcons:MaterialIcon Kind="Plus"
+                                                        Width="24"
+                                                        Height="24"
+                                                        Foreground="White"/>
+                        </Button>
+                    </Grid>
+                </Grid>
+
+                <Grid x:Name="RecordDetailHost"
+                      Grid.Column="1">
+                    <ScrollViewer IsVisible="{Binding IsRecordDetailVisible}">
+                        <StackPanel Spacing="12">
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Button Classes="icon-button"
+                                        ToolTip.Tip="{Binding BackText}"
+                                        IsVisible="{Binding IsNarrowLayout}"
+                                        Command="{Binding BackToRecordsCommand}">
+                                    <materialIcons:MaterialIcon Kind="ArrowLeft"
+                                                                Width="16"
+                                                                Height="16"
+                                                                Foreground="{DynamicResource AppAccentBrush}"/>
+                                </Button>
+                                <TextBlock Grid.Column="1"
+                                           Classes="page-title"
+                                           Text="{Binding DetailText}"
+                                           VerticalAlignment="Center"
+                                           Margin="10,0,0,0"/>
+                            </Grid>
+
+                             <Border Width="{DynamicResource AppQrPreviewSize}"
+                                     Height="{DynamicResource AppQrPreviewSize}"
+                                     Classes="panel"
+                                     Background="{DynamicResource AppComponentBrush}"
+                                     HorizontalAlignment="Center">
+                                <Image Source="{Binding SelectedImage}"
+                                       Width="168"
+                                       Height="168"
+                                       Stretch="Uniform"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Border>
+
+                            <controls:MobileSettingSection Title="{Binding DetailText}"
+                                                           Value="{Binding SelectedContentTypeLabel}">
+                                <StackPanel Spacing="10">
+                                    <TextBox Classes="form-field"
+                                             Watermark="{Binding NameText}"
+                                             Text="{Binding EditName, Mode=TwoWay}"
+                                             MaxLength="100"/>
+                                    <TextBox Classes="form-field"
+                                             Text="{Binding SelectedContent}"
+                                             IsReadOnly="True"
+                                             AcceptsReturn="True"
+                                             TextWrapping="Wrap"
+                                             MinHeight="86"/>
+                                    <TextBox Classes="form-field"
+                                             Watermark="{Binding NoteText}"
+                                             Text="{Binding EditNote, Mode=TwoWay}"
+                                             AcceptsReturn="True"
+                                             TextWrapping="Wrap"
+                                             MaxLength="500"
+                                             MinHeight="86"/>
+                                </StackPanel>
+                            </controls:MobileSettingSection>
+
+                            <Border Classes="form-card">
+                                <Grid ColumnDefinitions="*,Auto,Auto,Auto" ColumnSpacing="8">
+                                    <Button Classes="primary"
+                                            Command="{Binding SaveEditCommand}"
+                                            HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal" Spacing="6">
+                                            <materialIcons:MaterialIcon Kind="ContentSave"
+                                                                        Width="16"
+                                                                        Height="16"
+                                                                        Foreground="{DynamicResource AppOnAccentBrush}"/>
+                                            <TextBlock Text="{Binding SaveText}"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Grid.Column="1"
+                                            Classes="icon-button"
+                                            ToolTip.Tip="{Binding SaveQrImageText}"
+                                            Command="{Binding SaveQrImageCommand}">
+                                        <materialIcons:MaterialIcon Kind="Download"
+                                                                    Width="18"
+                                                                    Height="18"
+                                                                    Foreground="{DynamicResource AppAccentBrush}"/>
+                                    </Button>
+                                    <Button Grid.Column="2"
+                                            Classes="icon-button"
+                                            ToolTip.Tip="{Binding ShareQrImageText}"
+                                            Command="{Binding ShareQrImageCommand}">
+                                        <materialIcons:MaterialIcon Kind="ShareVariant"
+                                                                    Width="18"
+                                                                    Height="18"
+                                                                    Foreground="{DynamicResource AppAccentBrush}"/>
+                                    </Button>
+                                    <Button Grid.Column="3"
+                                            Classes="danger"
+                                            Content="{Binding DeleteText}"
+                                            Command="{Binding DeleteSelectedCommand}"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <ScrollViewer IsVisible="{Binding IsRecordAddVisible}">
+                        <StackPanel Spacing="12">
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Button Classes="icon-button"
+                                        ToolTip.Tip="{Binding BackText}"
+                                        IsVisible="{Binding IsRecordsSelected}"
+                                        Command="{Binding BackToRecordsCommand}">
+                                    <materialIcons:MaterialIcon Kind="ArrowLeft"
+                                                                Width="16"
+                                                                Height="16"
+                                                                Foreground="{DynamicResource AppAccentBrush}"/>
+                                </Button>
+                                <TextBlock Grid.Column="1"
+                                           Classes="page-title"
+                                           Text="{Binding CreateQrText}"
+                                           VerticalAlignment="Center"
+                                           Margin="10,0,0,0"/>
+                            </Grid>
+                            <controls:MobileSettingSection Title="{Binding CreateQrText}">
+                                <StackPanel Spacing="10">
+                                    <TextBox Classes="form-field"
+                                             Watermark="{Binding PasteQrContentText}"
+                                             Text="{Binding NewContent, Mode=TwoWay}"
+                                             AcceptsReturn="True"
+                                             TextWrapping="Wrap"
+                                             MinHeight="180"/>
+                                    <TextBox Classes="form-field"
+                                             Watermark="{Binding NameText}"
+                                             Text="{Binding NewName, Mode=TwoWay}"
+                                             MaxLength="100"/>
+                                </StackPanel>
+                            </controls:MobileSettingSection>
+                            <Border Classes="form-card">
+                            <StackPanel Spacing="8">
+                                <Button Classes="primary"
+                                        Command="{Binding SaveNewCommand}"
+                                        HorizontalAlignment="Stretch">
+                                    <StackPanel Orientation="Horizontal" Spacing="6">
+                                        <materialIcons:MaterialIcon Kind="ContentSave"
+                                                                    Width="16"
+                                                                    Height="16"
+                                                                    Foreground="{DynamicResource AppOnAccentBrush}"/>
+                                        <TextBlock Text="{Binding SaveText}"/>
+                                    </StackPanel>
+                                </Button>
+                                <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                                    <Button Classes="secondary"
+                                            Command="{Binding ImportImageCommand}"
+                                            HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal" Spacing="6">
+                                            <materialIcons:MaterialIcon Kind="Download"
+                                                                        Width="16"
+                                                                        Height="16"
+                                                                        Foreground="{DynamicResource AppAccentBrush}"/>
+                                            <TextBlock Text="{Binding ImportText}"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Grid.Column="1"
+                                            Classes="secondary"
+                                            Command="{Binding ScanCameraCommand}"
+                                            HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal" Spacing="6">
+                                            <materialIcons:MaterialIcon Kind="QrcodeScan"
+                                                                        Width="16"
+                                                                        Height="16"
+                                                                        Foreground="{DynamicResource AppAccentBrush}"/>
+                                            <TextBlock Text="{Binding ScanText}"/>
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <TextBlock Text="{Binding SelectRecordText}"
+                               IsVisible="{Binding ShowRecordPlaceholder}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Opacity="0.72"/>
+                </Grid>
+            </Grid>
+
+            <ScrollViewer IsVisible="{Binding IsScanSelected}">
+                <StackPanel Spacing="12">
+                    <TextBlock Classes="page-title" Text="{Binding ScanText}"/>
+                    <TextBox Classes="form-field"
+                             Watermark="{Binding PasteQrContentText}"
+                             Text="{Binding NewContent, Mode=TwoWay}"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             MinHeight="130"/>
+                    <Button Content="{Binding SaveNewQrText}"
+                            Classes="primary"
+                            Command="{Binding SaveNewCommand}"
+                            HorizontalAlignment="Stretch"/>
+                    <Button Content="{Binding ImportImageText}"
+                            Classes="secondary"
+                            Command="{Binding ImportImageCommand}"
+                            HorizontalAlignment="Stretch"/>
+                    <Button Content="{Binding ScanWithCameraText}"
+                            Classes="secondary"
+                            Command="{Binding ScanCameraCommand}"
+                            HorizontalAlignment="Stretch"/>
+                    <TextBlock Text="{Binding ScanTipText}"
+                               TextWrapping="Wrap"
+                               Opacity="0.72"/>
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer IsVisible="{Binding IsBackupSelected}">
+                <StackPanel Spacing="12">
+                    <TextBlock Classes="page-title" Text="{Binding BackupText}"/>
+                    <Border Classes="info-strip">
+                        <TextBlock Text="{Binding BackupDescriptionText}"
+                                   Classes="secondary"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+
+                    <controls:MobileSettingSection Title="{Binding CreateBackupText}"
+                                                   Value="{Binding BackupStatusText}">
+                        <StackPanel Spacing="10">
+                            <Button Classes="primary"
+                                    Command="{Binding CreateBackupCommand}"
+                                    HorizontalAlignment="Stretch">
+                                <StackPanel Orientation="Horizontal" Spacing="6">
+                                    <materialIcons:MaterialIcon Kind="ContentSave"
+                                                                Width="16"
+                                                                Height="16"
+                                                                Foreground="{DynamicResource AppOnAccentBrush}"/>
+                                    <TextBlock Text="{Binding CreateBackupText}"/>
+                                </StackPanel>
+                            </Button>
+                            <TextBlock Text="{Binding BackupManifestText}"
+                                       Classes="secondary"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </controls:MobileSettingSection>
+
+                    <controls:MobileSettingSection Title="{Binding RestoreBackupText}">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="{Binding RestoreSafetyNoteText}"
+                                       Classes="secondary"
+                                       TextWrapping="Wrap"/>
+                            <Button Content="{Binding RestoreBackupText}"
+                                    Classes="danger"
+                                    Command="{Binding RestoreBackupCommand}"
+                                    HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </controls:MobileSettingSection>
+
+                    <controls:MobileSettingSection Title="{Binding PreviewImportText}"
+                                                   Value="{Binding PreviewImportActionText}">
+                        <StackPanel Spacing="10">
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                                <Button Content="{Binding PreviewImportActionText}"
+                                        Classes="secondary"
+                                        Background="{Binding PreviewImportButtonBackground}"
+                                        Foreground="{Binding PreviewImportButtonForeground}"
+                                        Command="{Binding PreviewImportCommand}"
+                                        HorizontalAlignment="Stretch"/>
+                                <Button Grid.Column="1"
+                                        Content="{Binding ImportSelectedText}"
+                                        Classes="confirm"
+                                        Command="{Binding ImportSelectedCommand}"
+                                        HorizontalAlignment="Stretch"/>
+                            </Grid>
+                            <TextBlock Text="{Binding BackupStatusText}"
+                                       Classes="secondary"
+                                       TextWrapping="Wrap"/>
+                            <ListBox ItemsSource="{Binding ImportPreviewItems}"
+                                     IsVisible="{Binding HasImportPreview}"
+                                     MinHeight="160">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate x:DataType="models:ImportPreviewItem">
+                                        <Border Classes="list-card">
+                                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                                          VerticalAlignment="Center"/>
+                                                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                                    <TextBlock Text="{Binding Record.Name}"
+                                                               FontWeight="SemiBold"
+                                                               TextTrimming="CharacterEllipsis"/>
+                                                    <TextBlock Text="{Binding Record.Content}"
+                                                               Classes="secondary"
+                                                               TextTrimming="CharacterEllipsis"/>
+                                                </StackPanel>
+                                                <Border Grid.Column="2"
+                                                        Classes="value-pill"
+                                                        VerticalAlignment="Center"
+                                                        Margin="10,0,0,0">
+                                                    <TextBlock Text="{Binding IsDuplicate}"
+                                                               Classes="caption"/>
+                                                </Border>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </controls:MobileSettingSection>
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer IsVisible="{Binding IsSyncSelected}">
+                <StackPanel Spacing="12">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <StackPanel>
+                            <TextBlock Classes="page-title" Text="{Binding SyncText}"/>
+                            <TextBlock Text="{Binding SyncStatusText}"
+                                       Classes="secondary"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                        <Button Grid.Column="1"
+                                Classes="icon-button"
+                                ToolTip.Tip="{Binding RefreshText}"
+                                Command="{Binding RefreshSyncPeersCommand}">
+                            <materialIcons:MaterialIcon Kind="Refresh"
+                                                        Width="16"
+                                                        Height="16"
+                                                        Foreground="{DynamicResource AppAccentBrush}"/>
+                        </Button>
+                    </Grid>
+
+                    <controls:MobileSettingSection Title="{Binding SyncLocalDeviceText}"
+                                                   Value="{Binding CurrentSyncNetworkText}">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="{Binding LocalSyncDeviceText}"
+                                       Classes="secondary"
+                                       TextWrapping="Wrap"
+                                       />
+                            <TextBlock Text="{Binding CurrentSyncNetworkText}"
+                                       Classes="secondary"
+                                       TextWrapping="Wrap"
+                                       />
+                        </StackPanel>
+                    </controls:MobileSettingSection>
+
+                    <controls:MobileSettingSection Title="{Binding SyncDevicesText}"
+                                                   Value="{Binding SyncPeers.Count}">
+                        <Grid RowDefinitions="Auto,*">
+                            <ListBox Grid.Row="0"
+                                     ItemsSource="{Binding SyncPeers}"
+                                     SelectedItem="{Binding SelectedSyncPeer, Mode=TwoWay}"
+                                     IsVisible="{Binding HasSyncPeers}"
+                                     MinHeight="180"
+                                     MaxHeight="280">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate x:DataType="models:SyncDeviceInfo">
+                                        <Border Classes="list-card">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding DeviceName}"
+                                                           FontWeight="SemiBold"
+                                                           TextTrimming="CharacterEllipsis"/>
+                                                <TextBlock Text="{Binding Platform}"
+                                                           Classes="caption"/>
+                                                <TextBlock Text="{Binding NetworkName}"
+                                                           Classes="caption"/>
+                                                <TextBlock Text="{Binding Endpoint}"
+                                                           Classes="secondary"
+                                                           TextTrimming="CharacterEllipsis"/>
+                                            </StackPanel>
+                                            <Border Grid.Column="1"
+                                                    Classes="value-pill"
+                                                    VerticalAlignment="Center"
+                                                    Margin="10,0,0,0">
+                                                <TextBlock Text="{Binding TransportPort}"
+                                                           Classes="caption"/>
+                                            </Border>
+                                        </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <TextBlock Grid.Row="0"
+                                       Text="{Binding SyncNoPeersText}"
+                                       TextWrapping="Wrap"
+                                       Classes="secondary"
+                                       IsVisible="{Binding HasNoSyncPeers}"/>
+                        </Grid>
+                    </controls:MobileSettingSection>
+
+                    <Button Content="{Binding SyncStartText}"
+                            Classes="primary"
+                            Command="{Binding StartSyncCommand}"
+                            HorizontalAlignment="Stretch"/>
+                    <Border Classes="info-strip">
+                        <TextBlock Text="{Binding SyncTroubleshootingText}"
+                                   Classes="secondary"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer IsVisible="{Binding IsSettingsSelected}">
+                <StackPanel Spacing="12">
+                    <TextBlock Classes="page-title" Text="{Binding SettingsText}"/>
+                    <controls:MobileSettingSection Title="{Binding ThemeText}"
+                                                   Value="{Binding CurrentThemeLabel}">
+                        <Border Classes="setting-segment">
+                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="4">
+                                <Button Classes="setting-segment-option"
+                                        Content="{Binding ThemeSystemText}"
+                                        Background="{Binding ThemeSystemOptionBackground}"
+                                        BorderBrush="{Binding ThemeSystemOptionBorderBrush}"
+                                        Command="{Binding UseSystemThemeCommand}"/>
+                                <Button Grid.Column="1"
+                                        Classes="setting-segment-option"
+                                        Content="{Binding ThemeLightText}"
+                                        Background="{Binding ThemeLightOptionBackground}"
+                                        BorderBrush="{Binding ThemeLightOptionBorderBrush}"
+                                        Command="{Binding UseLightThemeCommand}"/>
+                                <Button Grid.Column="2"
+                                        Classes="setting-segment-option"
+                                        Content="{Binding ThemeDarkText}"
+                                        Background="{Binding ThemeDarkOptionBackground}"
+                                        BorderBrush="{Binding ThemeDarkOptionBorderBrush}"
+                                        Command="{Binding UseDarkThemeCommand}"/>
+                            </Grid>
+                        </Border>
+                    </controls:MobileSettingSection>
+
+                    <controls:MobileSettingSection Title="{Binding ColorStyleText}"
+                                                   Value="{Binding CurrentColorStyleLabel}">
+                        <Border Classes="setting-segment">
+                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="4">
+                                <Button Classes="setting-segment-option"
+                                        Background="{Binding ColorStyleOceanOptionBackground}"
+                                        BorderBrush="{Binding ColorStyleOceanOptionBorderBrush}"
+                                        Command="{Binding UseOceanColorStyleCommand}">
+                                    <StackPanel Orientation="Horizontal" Spacing="6" HorizontalAlignment="Center">
+                                        <Border Width="10" Height="10" CornerRadius="5" Background="#2F6FED"/>
+                                        <TextBlock Text="{Binding ColorStyleOceanText}"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Grid.Column="1"
+                                        Classes="setting-segment-option"
+                                        Background="{Binding ColorStyleForestOptionBackground}"
+                                        BorderBrush="{Binding ColorStyleForestOptionBorderBrush}"
+                                        Command="{Binding UseForestColorStyleCommand}">
+                                    <StackPanel Orientation="Horizontal" Spacing="6" HorizontalAlignment="Center">
+                                        <Border Width="10" Height="10" CornerRadius="5" Background="#2F6B4F"/>
+                                        <TextBlock Text="{Binding ColorStyleForestText}"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Grid.Column="2"
+                                        Classes="setting-segment-option"
+                                        Background="{Binding ColorStyleRoseOptionBackground}"
+                                        BorderBrush="{Binding ColorStyleRoseOptionBorderBrush}"
+                                        Command="{Binding UseRoseColorStyleCommand}">
+                                    <StackPanel Orientation="Horizontal" Spacing="6" HorizontalAlignment="Center">
+                                        <Border Width="10" Height="10" CornerRadius="5" Background="#B14B63"/>
+                                        <TextBlock Text="{Binding ColorStyleRoseText}"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </controls:MobileSettingSection>
+
+                    <controls:MobileSettingSection Title="{Binding LanguageText}"
+                                                   Value="{Binding CurrentLanguageLabel}">
+                        <Border Classes="setting-segment">
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+                                <Button Classes="setting-segment-option"
+                                        Content="{Binding LanguageChineseText}"
+                                        Background="{Binding LanguageChineseOptionBackground}"
+                                        BorderBrush="{Binding LanguageChineseOptionBorderBrush}"
+                                        Command="{Binding UseChineseLanguageCommand}"/>
+                                <Button Grid.Column="1"
+                                        Classes="setting-segment-option"
+                                        Content="{Binding LanguageEnglishText}"
+                                        Background="{Binding LanguageEnglishOptionBackground}"
+                                        BorderBrush="{Binding LanguageEnglishOptionBorderBrush}"
+                                        Command="{Binding UseEnglishLanguageCommand}"/>
+                            </Grid>
+                        </Border>
+                    </controls:MobileSettingSection>
+
+                    <controls:MobileSettingSection Title="{Binding AutoAcceptLanSyncText}"
+                                                   Value="{Binding AutoAcceptLanSyncStateText}">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="{Binding AutoAcceptLanSyncDescriptionText}"
+                                       Classes="secondary"
+                                       TextWrapping="Wrap"/>
+                            <Button Classes="setting-option"
+                                    Background="{Binding AutoAcceptLanSyncOptionBackground}"
+                                    BorderBrush="{Binding AutoAcceptLanSyncOptionBorderBrush}"
+                                    Command="{Binding ToggleAutoAcceptLanSyncRequestsCommand}">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <TextBlock Text="{Binding AutoAcceptLanSyncText}"
+                                               FontWeight="SemiBold"
+                                               VerticalAlignment="Center"/>
+                                    <Border Grid.Column="1"
+                                            CornerRadius="14"
+                                            Background="{DynamicResource AppComponentBrush}"
+                                            Padding="10,4">
+                                        <TextBlock Text="{Binding AutoAcceptLanSyncStateText}"
+                                                   Classes="caption"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                        </StackPanel>
+                    </controls:MobileSettingSection>
+
+                    <controls:MobileSettingSection Title="{Binding AboutText}"
+                                                   Value="{Binding VersionText}">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="{Binding AboutDescriptionText}"
+                                       TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding CurrentSettingsText}"
+                                       Classes="secondary"
+                                       TextWrapping="Wrap"/>
+                            <Border Classes="info-strip" Margin="0,6,0,0">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="{Binding UpdateText}"
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="{Binding UpdateStatusText}"
+                                               Classes="secondary"
+                                               TextWrapping="Wrap"/>
+                                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                                        <Button Classes="primary"
+                                                Content="{Binding CheckUpdateText}"
+                                                Command="{Binding CheckForUpdatesCommand}"
+                                                HorizontalAlignment="Stretch"/>
+                                        <Button Grid.Column="1"
+                                                Classes="secondary"
+                                                Content="{Binding OpenUpdateText}"
+                                                Command="{Binding OpenUpdateDownloadCommand}"
+                                                HorizontalAlignment="Stretch"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </controls:MobileSettingSection>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+        <Border Grid.Row="2" Classes="bottom-tab-bar">
+        <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="6">
+            <controls:MobileBottomTabButton Background="{Binding RecordsTabBackground}"
+                                            BorderBrush="{Binding RecordsTabBorderBrush}"
+                                            Foreground="{Binding RecordsTabForeground}"
+                                            Label="{Binding RecordsText}"
+                                            Command="{Binding SelectSectionCommand}"
+                                            CommandParameter="Records"
+                                            HorizontalAlignment="Stretch">
+                <materialIcons:MaterialIcon Kind="FormatListBulleted"
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{Binding RecordsTabForeground}"/>
+            </controls:MobileBottomTabButton>
+            <controls:MobileBottomTabButton Grid.Column="1"
+                                            Background="{Binding ScanTabBackground}"
+                                            BorderBrush="{Binding ScanTabBorderBrush}"
+                                            Foreground="{Binding ScanTabForeground}"
+                                            Label="{Binding ScanText}"
+                                            Command="{Binding SelectSectionCommand}"
+                                            CommandParameter="Scan"
+                                            HorizontalAlignment="Stretch">
+                <materialIcons:MaterialIcon Kind="QrcodeScan"
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{Binding ScanTabForeground}"/>
+            </controls:MobileBottomTabButton>
+            <controls:MobileBottomTabButton Grid.Column="2"
+                                            Background="{Binding BackupTabBackground}"
+                                            BorderBrush="{Binding BackupTabBorderBrush}"
+                                            Foreground="{Binding BackupTabForeground}"
+                                            Label="{Binding BackupText}"
+                                            Command="{Binding SelectSectionCommand}"
+                                            CommandParameter="Backup"
+                                            HorizontalAlignment="Stretch">
+                <materialIcons:MaterialIcon Kind="BackupRestore"
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{Binding BackupTabForeground}"/>
+            </controls:MobileBottomTabButton>
+            <controls:MobileBottomTabButton Grid.Column="3"
+                                            Background="{Binding SyncTabBackground}"
+                                            BorderBrush="{Binding SyncTabBorderBrush}"
+                                            Foreground="{Binding SyncTabForeground}"
+                                            Label="{Binding SyncText}"
+                                            Command="{Binding SelectSectionCommand}"
+                                            CommandParameter="Sync"
+                                            HorizontalAlignment="Stretch">
+                <materialIcons:MaterialIcon Kind="Sync"
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{Binding SyncTabForeground}"/>
+            </controls:MobileBottomTabButton>
+            <controls:MobileBottomTabButton Grid.Column="4"
+                                            Background="{Binding SettingsTabBackground}"
+                                            BorderBrush="{Binding SettingsTabBorderBrush}"
+                                            Foreground="{Binding SettingsTabForeground}"
+                                            Label="{Binding SettingsText}"
+                                            Command="{Binding SelectSectionCommand}"
+                                            CommandParameter="Settings"
+                                            HorizontalAlignment="Stretch">
+                <materialIcons:MaterialIcon Kind="CogOutline"
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{Binding SettingsTabForeground}"/>
+            </controls:MobileBottomTabButton>
+        </Grid>
+        </Border>
+    </Grid>
+    <ItemsControl ItemsSource="{Binding ToastMessages}"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Top"
+                  Margin="16"
+                  Width="320">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="vm:AndroidToastMessageViewModel">
+                <Border Classes="toast-card"
+                        Background="{Binding BackgroundBrush}"
+                        BorderBrush="{Binding AccentBrush}"
+                        BorderThickness="4,0,0,0"
+                        Margin="0,0,0,8">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title}"
+                                   FontWeight="SemiBold"
+                                   Foreground="{Binding ForegroundBrush}"
+                                   TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Body}"
+                                   Opacity="0.78"
+                                   Foreground="{Binding ForegroundBrush}"
+                                   TextWrapping="Wrap"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+    </Grid>
+</UserControl>
+

@@ -1,0 +1,17 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <Thickness x:Key="PagePadding">20</Thickness>
+        <Thickness x:Key="PanelPadding">14</Thickness>
+        <CornerRadius x:Key="ControlCornerRadius">6</CornerRadius>
+        <CornerRadius x:Key="PanelCornerRadius">8</CornerRadius>
+        <x:Double x:Key="QrPreviewSize">280</x:Double>
+        <SolidColorBrush x:Key="AppAccentBrush" Color="#2F6FED"/>
+        <SolidColorBrush x:Key="AppAccentSoftBrush" Color="#DCE7FF"/>
+        <SolidColorBrush x:Key="AppSurfaceBrush" Color="#F5F8FF"/>
+        <SolidColorBrush x:Key="AppSurfaceAltBrush" Color="#E7EEFC"/>
+        <SolidColorBrush x:Key="AppBorderBrush" Color="#A8B9D8"/>
+        <SolidColorBrush x:Key="AppDangerBrush" Color="#B3261E"/>
+        <SolidColorBrush x:Key="AppSuccessBrush" Color="#237B4B"/>
+    </Styles.Resources>
+</Styles>

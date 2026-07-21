@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_Title" xml:space="preserve">
+    <value>QRKeeper</value>
+  </data>
+  <data name="Nav_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Nav_Backup" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="Nav_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Nav_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Home_SearchWatermark" xml:space="preserve">
+    <value>Search by name</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Home_Records" xml:space="preserve">
+    <value>Records</value>
+  </data>
+  <data name="Home_CaptureTitle" xml:space="preserve">
+    <value>Drop an image here or select an area on screen</value>
+  </data>
+  <data name="Home_ImportImage" xml:space="preserve">
+    <value>Import image</value>
+  </data>
+  <data name="Home_RecognizeScreen" xml:space="preserve">
+    <value>Recognize screen</value>
+  </data>
+  <data name="Home_PasteContentWatermark" xml:space="preserve">
+    <value>Paste QR content here</value>
+  </data>
+  <data name="Common_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Home_Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="Field_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Field_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Field_Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="Field_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Home_SaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="Home_ExportImage" xml:space="preserve">
+    <value>Export image</value>
+  </data>
+  <data name="Common_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Backup_Title" xml:space="preserve">
+    <value>Backup and import</value>
+  </data>
+  <data name="Backup_Create" xml:space="preserve">
+    <value>Create backup</value>
+  </data>
+  <data name="Backup_DefaultDirectory" xml:space="preserve">
+    <value>Default backup directory</value>
+  </data>
+  <data name="Common_Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="Backup_Restore" xml:space="preserve">
+    <value>Restore backup</value>
+  </data>
+  <data name="Backup_PreviewImport" xml:space="preserve">
+    <value>Preview import</value>
+  </data>
+  <data name="Backup_CancelPreview" xml:space="preserve">
+    <value>Cancel preview</value>
+  </data>
+  <data name="Backup_ImportSelected" xml:space="preserve">
+    <value>Import selected</value>
+  </data>
+  <data name="Backup_RestoreWarning" xml:space="preserve">
+    <value>Restore backup replaces the current local data.</value>
+  </data>
+  <data name="Backup_RestoreSafetyNote" xml:space="preserve">
+    <value>Before restore, QRKeeper automatically creates a safety backup in the default backup directory.</value>
+  </data>
+  <data name="Backup_RestoreConfirmTitle" xml:space="preserve">
+    <value>Confirm restore</value>
+  </data>
+  <data name="Backup_RestoreConfirmMessage" xml:space="preserve">
+    <value>Restore will replace the current records. QRKeeper will create a safety backup first. Continue?</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Settings_ColorStyle" xml:space="preserve">
+    <value>Color style</value>
+  </data>
+  <data name="ColorStyle_Ocean" xml:space="preserve">
+    <value>Ocean</value>
+  </data>
+  <data name="ColorStyle_Forest" xml:space="preserve">
+    <value>Forest</value>
+  </data>
+  <data name="ColorStyle_Rose" xml:space="preserve">
+    <value>Rose</value>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="About_VersionFormat" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>QRKeeper is a cross-platform QR code collection and management tool for saving QR content, importing QR codes from images or the screen, browsing records, exporting QR images, and protecting data through backup, restore, and import workflows.</value>
+  </data>
+  <data name="Update_Title" xml:space="preserve">
+    <value>Online update</value>
+  </data>
+  <data name="Update_Check" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="Update_OpenDownload" xml:space="preserve">
+    <value>Open download</value>
+  </data>
+  <data name="Update_NotChecked" xml:space="preserve">
+    <value>Updates have not been checked yet.</value>
+  </data>
+  <data name="Update_Checking" xml:space="preserve">
+    <value>Checking GitHub Releases...</value>
+  </data>
+  <data name="Update_Canceled" xml:space="preserve">
+    <value>Update check canceled.</value>
+  </data>
+  <data name="Update_AvailableFormat" xml:space="preserve">
+    <value>Version {0} is available.</value>
+  </data>
+  <data name="Update_UpToDateFormat" xml:space="preserve">
+    <value>You are using the latest version ({0}).</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Language_Chinese" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="Status_Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Status_ReadyPeriod" xml:space="preserve">
+    <value>Ready.</value>
+  </data>
+  <data name="Status_NoImportPreview" xml:space="preserve">
+    <value>No import preview loaded.</value>
+  </data>
+  <data name="Status_CapturePrompt" xml:space="preserve">
+    <value>Drop an image, import a file, or recognize the current screen.</value>
+  </data>
+  <data name="Status_CapturingScreen" xml:space="preserve">
+    <value>Capturing screen and looking for a QR code...</value>
+  </data>
+  <data name="Status_ScreenRecognitionCanceled" xml:space="preserve">
+    <value>Screen recognition canceled.</value>
+  </data>
+  <data name="Status_ScreenRecognitionUnsupported" xml:space="preserve">
+    <value>Screen QR recognition is currently supported on Windows desktop only.</value>
+  </data>
+  <data name="ScreenSelection_ManualInstruction" xml:space="preserve">
+    <value>Drag to select a QR code area. Press Esc to cancel.</value>
+  </data>
+  <data name="ScreenSelection_CandidateInstruction" xml:space="preserve">
+    <value>Click a highlighted QR code, move the mouse to switch selection, or drag a custom area. Press Esc to cancel.</value>
+  </data>
+  <data name="Status_DroppedFileMissing" xml:space="preserve">
+    <value>Dropped file does not exist.</value>
+  </data>
+  <data name="Status_ImageTooLarge" xml:space="preserve">
+    <value>Image file is larger than 20MB.</value>
+  </data>
+  <data name="Status_RecordUpdated" xml:space="preserve">
+    <value>Record updated.</value>
+  </data>
+  <data name="Status_QrImageMissing" xml:space="preserve">
+    <value>QR image file is missing.</value>
+  </data>
+  <data name="Status_QrImageSavedFormat" xml:space="preserve">
+    <value>QR image saved: {0}</value>
+  </data>
+  <data name="Status_RecordDeleted" xml:space="preserve">
+    <value>Record deleted.</value>
+  </data>
+  <data name="Status_NoRecords" xml:space="preserve">
+    <value>No records.</value>
+  </data>
+  <data name="Status_RecordCountFormat" xml:space="preserve">
+    <value>{0} records.</value>
+  </data>
+  <data name="Status_DecodingQr" xml:space="preserve">
+    <value>Decoding QR image...</value>
+  </data>
+  <data name="Status_NoQrFoundBody" xml:space="preserve">
+    <value>Try selecting a tighter area around the QR code.</value>
+  </data>
+  <data name="Status_QrImageCannotOpen" xml:space="preserve">
+    <value>QR image file cannot be opened.</value>
+  </data>
+  <data name="Status_BackupSavedFormat" xml:space="preserve">
+    <value>Backup saved: {0}</value>
+  </data>
+  <data name="Status_DefaultBackupDirectoryFormat" xml:space="preserve">
+    <value>Default backup directory: {0}</value>
+  </data>
+  <data name="Status_RestoreCompleted" xml:space="preserve">
+    <value>Restore completed. Existing data was replaced.</value>
+  </data>
+  <data name="Status_RestoreCompletedWithBackupFormat" xml:space="preserve">
+    <value>Restore completed. A safety backup was created first: {0}</value>
+  </data>
+  <data name="Status_ImportPreviewManifestFormat" xml:space="preserve">
+    <value>{0} records, {1} new, {2} duplicates.</value>
+  </data>
+  <data name="Status_ImportPreviewLoaded" xml:space="preserve">
+    <value>Import preview loaded.</value>
+  </data>
+  <data name="Status_ImportPreviewCanceled" xml:space="preserve">
+    <value>Import preview canceled.</value>
+  </data>
+  <data name="Status_LoadImportPreviewFirst" xml:space="preserve">
+    <value>Load an import preview first.</value>
+  </data>
+  <data name="Status_ImportResultFormat" xml:space="preserve">
+    <value>Imported {0}, skipped {1}.</value>
+  </data>
+  <data name="Error_EnterQrContent" xml:space="preserve">
+    <value>Enter QR content first.</value>
+  </data>
+  <data name="Toast_ImageImportFailed" xml:space="preserve">
+    <value>Image import failed</value>
+  </data>
+  <data name="Toast_ScreenRecognition" xml:space="preserve">
+    <value>Screen recognition</value>
+  </data>
+  <data name="Toast_ScreenRecognitionFailed" xml:space="preserve">
+    <value>Screen recognition failed</value>
+  </data>
+  <data name="Toast_RecordSaved" xml:space="preserve">
+    <value>Record saved</value>
+  </data>
+  <data name="Toast_RecordSaveFailed" xml:space="preserve">
+    <value>Record save failed</value>
+  </data>
+  <data name="Toast_RecordUpdated" xml:space="preserve">
+    <value>Record updated</value>
+  </data>
+  <data name="Toast_RecordUpdateFailed" xml:space="preserve">
+    <value>Record update failed</value>
+  </data>
+  <data name="Toast_ExportFailed" xml:space="preserve">
+    <value>Export failed</value>
+  </data>
+  <data name="Toast_QrImageExported" xml:space="preserve">
+    <value>QR image exported</value>
+  </data>
+  <data name="Toast_RecordDeleted" xml:space="preserve">
+    <value>Record deleted</value>
+  </data>
+  <data name="Toast_ImageTooLarge" xml:space="preserve">
+    <value>Image too large</value>
+  </data>
+  <data name="Toast_NoQrCodeFound" xml:space="preserve">
+    <value>No QR code found</value>
+  </data>
+  <data name="Toast_ImportedQr" xml:space="preserve">
+    <value>Imported QR</value>
+  </data>
+  <data name="Toast_BackupSaved" xml:space="preserve">
+    <value>Backup saved</value>
+  </data>
+  <data name="Toast_BackupDirectoryUpdated" xml:space="preserve">
+    <value>Backup directory updated</value>
+  </data>
+  <data name="Toast_BackupFailed" xml:space="preserve">
+    <value>Backup failed</value>
+  </data>
+  <data name="Toast_RestoreCompleted" xml:space="preserve">
+    <value>Restore completed</value>
+  </data>
+  <data name="Toast_RestoreFailed" xml:space="preserve">
+    <value>Restore failed</value>
+  </data>
+  <data name="Toast_ImportPreviewLoaded" xml:space="preserve">
+    <value>Import preview loaded</value>
+  </data>
+  <data name="Toast_ImportPreviewCanceled" xml:space="preserve">
+    <value>Import preview canceled</value>
+  </data>
+  <data name="Toast_ImportPreviewFailed" xml:space="preserve">
+    <value>Import preview failed</value>
+  </data>
+  <data name="Toast_ImportBlocked" xml:space="preserve">
+    <value>Import blocked</value>
+  </data>
+  <data name="Toast_ImportCompleted" xml:space="preserve">
+    <value>Import completed</value>
+  </data>
+  <data name="Toast_ImportFailed" xml:space="preserve">
+    <value>Import failed</value>
+  </data>
+  <data name="Sync_Devices" xml:space="preserve">
+    <value>Discovered devices</value>
+  </data>
+  <data name="Toast_SyncFailed" xml:space="preserve">
+    <value>Sync failed</value>
+  </data>
+  <data name="Sync_Rejected" xml:space="preserve">
+    <value>The peer rejected the sync request.</value>
+  </data>
+  <data name="Sync_LocalDeviceFormat" xml:space="preserve">
+    <value>{0} - TCP {1}</value>
+  </data>
+  <data name="Sync_NetworkFormat" xml:space="preserve">
+    <value>Network: {0}</value>
+  </data>
+  <data name="Sync_NetworkUnknown" xml:space="preserve">
+    <value>Unknown network</value>
+  </data>
+  <data name="Sync_SelectPeerFirst" xml:space="preserve">
+    <value>Select a discovered device first.</value>
+  </data>
+  <data name="Settings_AutoAcceptLanSync" xml:space="preserve">
+    <value>Auto-accept incoming LAN sync requests</value>
+  </data>
+  <data name="Sync_InProgressFormat" xml:space="preserve">
+    <value>Syncing with {0}...</value>
+  </data>
+  <data name="Sync_Troubleshooting" xml:space="preserve">
+    <value>If discovery stays empty, check Windows firewall prompts, same Wi-Fi/LAN, guest network or router client isolation, VPN/proxy, and Android local-network restrictions.</value>
+  </data>
+  <data name="Sync_ResultFormat" xml:space="preserve">
+    <value>Sync completed. Imported {0}; skipped {1}.</value>
+  </data>
+  <data name="Settings_AutoAcceptLanSyncDescription" xml:space="preserve">
+    <value>When enabled, QRKeeper accepts additive sync requests from discovered LAN devices without asking every time. Existing records are never overwritten or deleted.</value>
+  </data>
+  <data name="Nav_Sync" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="Settings_Sync" xml:space="preserve">
+    <value>LAN sync</value>
+  </data>
+  <data name="Toast_SyncRejected" xml:space="preserve">
+    <value>Sync rejected</value>
+  </data>
+  <data name="Sync_Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="Sync_NotRunning" xml:space="preserve">
+    <value>Sync service is not running.</value>
+  </data>
+  <data name="Sync_Title" xml:space="preserve">
+    <value>LAN Sync</value>
+  </data>
+  <data name="Sync_UnknownDevice" xml:space="preserve">
+    <value>Unknown device</value>
+  </data>
+  <data name="Sync_NoPeers" xml:space="preserve">
+    <value>No QRKeeper devices discovered yet. Keep QRKeeper open on the other device and make sure both devices are on the same LAN.</value>
+  </data>
+  <data name="Toast_SyncCompleted" xml:space="preserve">
+    <value>Sync completed</value>
+  </data>
+  <data name="Sync_ErrorFormat" xml:space="preserve">
+    <value>Sync failed: {0}</value>
+  </data>
+  <data name="Sync_IncomingRequestMessage" xml:space="preserve">
+    <value>Allow {0} to sync {1} record(s) with this device? Missing records may be added, but existing records will not be changed or deleted.</value>
+  </data>
+  <data name="Sync_Ready" xml:space="preserve">
+    <value>Ready to sync.</value>
+  </data>
+  <data name="Sync_IncomingRequestTitle" xml:space="preserve">
+    <value>Incoming sync request</value>
+  </data>
+  <data name="Toast_SyncStartFailed" xml:space="preserve">
+    <value>Sync startup failed</value>
+  </data>
+  <data name="Sync_Start" xml:space="preserve">
+    <value>Sync selected device</value>
+  </data>
+  <data name="Sync_LocalDevice" xml:space="preserve">
+    <value>This device</value>
+  </data>
+</root>

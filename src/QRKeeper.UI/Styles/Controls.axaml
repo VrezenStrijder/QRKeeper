@@ -1,0 +1,128 @@
+<Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="TextBlock.section-title">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Margin" Value="0,0,0,12"/>
+    </Style>
+
+    <Style Selector="TextBlock.label">
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Margin" Value="0,10,0,4"/>
+    </Style>
+
+    <Style Selector="Border.panel">
+        <Setter Property="Padding" Value="{DynamicResource PanelPadding}"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource PanelCornerRadius}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
+    </Style>
+
+    <Style Selector="Border.capture-zone">
+        <Setter Property="MinHeight" Value="44"/>
+        <Setter Property="Padding" Value="10,8"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource PanelCornerRadius}"/>
+        <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBrush}"/>
+    </Style>
+
+    <Style Selector="TextBox.form-field">
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+
+    <Style Selector="Grid.reorderable-list-item">
+        <Setter Property="Margin" Value="0,4"/>
+    </Style>
+
+    <Style Selector="Border.reorderable-list-card">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+
+    <Style Selector="ListBoxItem.reordering Border.reorderable-list-card">
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Opacity" Value="0.82"/>
+    </Style>
+
+    <Style Selector="Border.reorder-insert-line">
+        <Setter Property="Height" Value="4"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="Opacity" Value="0"/>
+    </Style>
+
+    <Style Selector="ListBoxItem.reorder-before Border.reorder-insert-line.before">
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="Margin" Value="0,-6,0,4"/>
+    </Style>
+
+    <Style Selector="ListBoxItem.reorder-after Border.reorder-insert-line.after">
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="Margin" Value="0,4,0,-6"/>
+    </Style>
+
+    <Style Selector="Button.primary">
+        <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <Style Selector="Button.secondary">
+        <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
+    </Style>
+
+    <Style Selector="Button.confirm">
+        <Setter Property="Background" Value="{DynamicResource AppSuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppSuccessBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <Style Selector="Button.danger">
+        <Setter Property="Background" Value="{DynamicResource AppDangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDangerBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <Style Selector="Border.toast">
+        <Setter Property="Width" Value="320"/>
+        <Setter Property="Margin" Value="0,0,0,8"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource PanelCornerRadius}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SystemControlForegroundBaseLowBrush}"/>
+        <Setter Property="BoxShadow" Value="0 8 22 0 #30000000"/>
+    </Style>
+
+    <Style Selector="Border.toast-accent">
+        <Setter Property="CornerRadius" Value="8,0,0,8"/>
+    </Style>
+
+    <Style Selector="ItemsControl.toast-host">
+        <Setter Property="Margin" Value="18"/>
+        <Setter Property="MaxWidth" Value="340"/>
+        <Setter Property="ZIndex" Value="50"/>
+    </Style>
+
+    <Style Selector="ItemsControl.toast-host.top-right">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style Selector="ItemsControl.toast-host.top-center">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style Selector="ItemsControl.toast-host.bottom-right">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
+    <Style Selector="ItemsControl.toast-host.bottom-center">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+</Styles>

@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:QRKeeper.UI.ViewModels"
+             x:Class="QRKeeper.UI.Views.AboutView"
+             x:DataType="vm:AboutViewModel">
+    <StackPanel Margin="{DynamicResource PagePadding}" MaxWidth="680" HorizontalAlignment="Left">
+        <TextBlock Classes="section-title" Text="{Binding Title}"/>
+        <Border Classes="panel">
+            <StackPanel Spacing="10">
+                <TextBlock Text="{Binding AppName}"
+                           FontSize="28"
+                           FontWeight="SemiBold"/>
+                <TextBlock Text="{Binding VersionText}"
+                           Opacity="0.72"/>
+                <TextBlock Text="{Binding Description}"
+                           TextWrapping="Wrap"
+                           LineHeight="22"
+                           Margin="0,8,0,0"/>
+            </StackPanel>
+        </Border>
+        <Border Classes="panel" Margin="0,14,0,0">
+            <StackPanel Spacing="10">
+                <TextBlock Classes="label" Text="{Binding UpdateTitle}"/>
+                <TextBlock Text="{Binding UpdateStatusText}"
+                           TextWrapping="Wrap"
+                           Opacity="0.72"/>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <Button Classes="primary"
+                            Content="{Binding CheckUpdateText}"
+                            Command="{Binding CheckForUpdatesCommand}"/>
+                    <Button Classes="secondary"
+                            Content="{Binding OpenUpdateText}"
+                            Command="{Binding OpenUpdateDownloadCommand}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

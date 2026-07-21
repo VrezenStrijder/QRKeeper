@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_Title" xml:space="preserve">
+    <value>QRKeeper</value>
+  </data>
+  <data name="Nav_Home" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="Nav_Backup" xml:space="preserve">
+    <value>备份</value>
+  </data>
+  <data name="Nav_Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Home_SearchWatermark" xml:space="preserve">
+    <value>按名称搜索</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Home_Records" xml:space="preserve">
+    <value>记录</value>
+  </data>
+  <data name="Home_CaptureTitle" xml:space="preserve">
+    <value>拖入图片，或选择屏幕上的二维码区域</value>
+  </data>
+  <data name="Home_ImportImage" xml:space="preserve">
+    <value>导入图片</value>
+  </data>
+  <data name="Home_RecognizeScreen" xml:space="preserve">
+    <value>识别屏幕</value>
+  </data>
+  <data name="Home_PasteContentWatermark" xml:space="preserve">
+    <value>在此粘贴二维码内容</value>
+  </data>
+  <data name="Common_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Home_Detail" xml:space="preserve">
+    <value>详情</value>
+  </data>
+  <data name="Field_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Field_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Field_Content" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="Field_Note" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="Home_SaveChanges" xml:space="preserve">
+    <value>保存修改</value>
+  </data>
+  <data name="Home_ExportImage" xml:space="preserve">
+    <value>导出图片</value>
+  </data>
+  <data name="Common_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Backup_Title" xml:space="preserve">
+    <value>备份与导入</value>
+  </data>
+  <data name="Backup_Create" xml:space="preserve">
+    <value>创建备份</value>
+  </data>
+  <data name="Backup_Restore" xml:space="preserve">
+    <value>恢复备份</value>
+  </data>
+  <data name="Backup_PreviewImport" xml:space="preserve">
+    <value>预览导入</value>
+  </data>
+  <data name="Backup_CancelPreview" xml:space="preserve">
+    <value>取消预览</value>
+  </data>
+  <data name="Backup_ImportSelected" xml:space="preserve">
+    <value>导入选中项</value>
+  </data>
+  <data name="Backup_RestoreWarning" xml:space="preserve">
+    <value>恢复备份会替换当前本地数据。</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Settings_Theme" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="Settings_ColorStyle" xml:space="preserve">
+    <value>色彩风格</value>
+  </data>
+  <data name="ColorStyle_Ocean" xml:space="preserve">
+    <value>海洋</value>
+  </data>
+  <data name="ColorStyle_Forest" xml:space="preserve">
+    <value>森林</value>
+  </data>
+  <data name="ColorStyle_Rose" xml:space="preserve">
+    <value>玫瑰</value>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Language_Chinese" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="Status_Ready" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Status_ReadyPeriod" xml:space="preserve">
+    <value>就绪。</value>
+  </data>
+  <data name="Status_NoImportPreview" xml:space="preserve">
+    <value>尚未加载导入预览。</value>
+  </data>
+  <data name="Status_CapturePrompt" xml:space="preserve">
+    <value>拖入图片、导入文件，或识别当前屏幕。</value>
+  </data>
+  <data name="Status_CapturingScreen" xml:space="preserve">
+    <value>正在捕获屏幕并查找二维码...</value>
+  </data>
+  <data name="Status_ScreenRecognitionCanceled" xml:space="preserve">
+    <value>已取消屏幕识别。</value>
+  </data>
+  <data name="Status_ScreenRecognitionUnsupported" xml:space="preserve">
+    <value>屏幕二维码识别目前仅支持 Windows 桌面。</value>
+  </data>
+  <data name="ScreenSelection_ManualInstruction" xml:space="preserve">
+    <value>拖动选择二维码区域，按 Esc 取消。</value>
+  </data>
+  <data name="ScreenSelection_CandidateInstruction" xml:space="preserve">
+    <value>点击高亮的二维码，移动鼠标切换选择，或拖动自定义区域。按 Esc 取消。</value>
+  </data>
+  <data name="Status_DroppedFileMissing" xml:space="preserve">
+    <value>拖入的文件不存在。</value>
+  </data>
+  <data name="Status_ImageTooLarge" xml:space="preserve">
+    <value>图片文件大于 20MB。</value>
+  </data>
+  <data name="Status_RecordUpdated" xml:space="preserve">
+    <value>记录已更新。</value>
+  </data>
+  <data name="Status_QrImageMissing" xml:space="preserve">
+    <value>二维码图片文件缺失。</value>
+  </data>
+  <data name="Status_QrImageSavedFormat" xml:space="preserve">
+    <value>二维码图片已保存：{0}</value>
+  </data>
+  <data name="Status_RecordDeleted" xml:space="preserve">
+    <value>记录已删除。</value>
+  </data>
+  <data name="Status_NoRecords" xml:space="preserve">
+    <value>暂无记录。</value>
+  </data>
+  <data name="Status_RecordCountFormat" xml:space="preserve">
+    <value>{0} 条记录。</value>
+  </data>
+  <data name="Status_DecodingQr" xml:space="preserve">
+    <value>正在解码二维码图片...</value>
+  </data>
+  <data name="Status_NoQrFoundBody" xml:space="preserve">
+    <value>请尝试选择更贴近二维码的区域。</value>
+  </data>
+  <data name="Status_QrImageCannotOpen" xml:space="preserve">
+    <value>无法打开二维码图片文件。</value>
+  </data>
+  <data name="Status_BackupSavedFormat" xml:space="preserve">
+    <value>备份已保存：{0}</value>
+  </data>
+  <data name="Status_RestoreCompleted" xml:space="preserve">
+    <value>恢复完成，现有数据已被替换。</value>
+  </data>
+  <data name="Status_ImportPreviewManifestFormat" xml:space="preserve">
+    <value>{0} 条记录，{1} 条新增，{2} 条重复。</value>
+  </data>
+  <data name="Status_ImportPreviewLoaded" xml:space="preserve">
+    <value>导入预览已加载。</value>
+  </data>
+  <data name="Status_ImportPreviewCanceled" xml:space="preserve">
+    <value>已取消导入预览。</value>
+  </data>
+  <data name="Status_LoadImportPreviewFirst" xml:space="preserve">
+    <value>请先加载导入预览。</value>
+  </data>
+  <data name="Status_ImportResultFormat" xml:space="preserve">
+    <value>已导入 {0} 条，已跳过 {1} 条。</value>
+  </data>
+  <data name="Error_EnterQrContent" xml:space="preserve">
+    <value>请先输入二维码内容。</value>
+  </data>
+  <data name="Toast_ImageImportFailed" xml:space="preserve">
+    <value>图片导入失败</value>
+  </data>
+  <data name="Toast_ScreenRecognition" xml:space="preserve">
+    <value>屏幕识别</value>
+  </data>
+  <data name="Toast_ScreenRecognitionFailed" xml:space="preserve">
+    <value>屏幕识别失败</value>
+  </data>
+  <data name="Toast_RecordSaved" xml:space="preserve">
+    <value>记录已保存</value>
+  </data>
+  <data name="Toast_RecordSaveFailed" xml:space="preserve">
+    <value>记录保存失败</value>
+  </data>
+  <data name="Toast_RecordUpdated" xml:space="preserve">
+    <value>记录已更新</value>
+  </data>
+  <data name="Toast_RecordUpdateFailed" xml:space="preserve">
+    <value>记录更新失败</value>
+  </data>
+  <data name="Toast_ExportFailed" xml:space="preserve">
+    <value>导出失败</value>
+  </data>
+  <data name="Toast_QrImageExported" xml:space="preserve">
+    <value>二维码图片已导出</value>
+  </data>
+  <data name="Toast_RecordDeleted" xml:space="preserve">
+    <value>记录已删除</value>
+  </data>
+  <data name="Toast_ImageTooLarge" xml:space="preserve">
+    <value>图片过大</value>
+  </data>
+  <data name="Toast_NoQrCodeFound" xml:space="preserve">
+    <value>未找到二维码</value>
+  </data>
+  <data name="Toast_ImportedQr" xml:space="preserve">
+    <value>二维码已导入</value>
+  </data>
+  <data name="Toast_BackupSaved" xml:space="preserve">
+    <value>备份已保存</value>
+  </data>
+  <data name="Toast_BackupFailed" xml:space="preserve">
+    <value>备份失败</value>
+  </data>
+  <data name="Toast_RestoreCompleted" xml:space="preserve">
+    <value>恢复完成</value>
+  </data>
+  <data name="Toast_RestoreFailed" xml:space="preserve">
+    <value>恢复失败</value>
+  </data>
+  <data name="Toast_ImportPreviewLoaded" xml:space="preserve">
+    <value>导入预览已加载</value>
+  </data>
+  <data name="Toast_ImportPreviewCanceled" xml:space="preserve">
+    <value>导入预览已取消</value>
+  </data>
+  <data name="Toast_ImportPreviewFailed" xml:space="preserve">
+    <value>导入预览失败</value>
+  </data>
+  <data name="Toast_ImportBlocked" xml:space="preserve">
+    <value>导入被阻止</value>
+  </data>
+  <data name="Toast_ImportCompleted" xml:space="preserve">
+    <value>导入完成</value>
+  </data>
+  <data name="Toast_ImportFailed" xml:space="preserve">
+    <value>导入失败</value>
+  </data>
+  <data name="Backup_DefaultDirectory" xml:space="preserve">
+    <value>默认备份目录</value>
+  </data>
+  <data name="Common_Browse" xml:space="preserve">
+    <value>浏览</value>
+  </data>
+  <data name="Backup_RestoreSafetyNote" xml:space="preserve">
+    <value>执行恢复前，QRKeeper 会先自动在默认备份目录创建一份安全备份。</value>
+  </data>
+  <data name="Backup_RestoreConfirmTitle" xml:space="preserve">
+    <value>确认恢复</value>
+  </data>
+  <data name="Backup_RestoreConfirmMessage" xml:space="preserve">
+    <value>恢复备份会覆盖当前记录。QRKeeper 会先创建安全备份。是否继续？</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Status_DefaultBackupDirectoryFormat" xml:space="preserve">
+    <value>默认备份目录：{0}</value>
+  </data>
+  <data name="Status_RestoreCompletedWithBackupFormat" xml:space="preserve">
+    <value>恢复完成。已先创建安全备份：{0}</value>
+  </data>
+  <data name="Toast_BackupDirectoryUpdated" xml:space="preserve">
+    <value>备份目录已更新</value>
+  </data>
+  <data name="Nav_About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="About_VersionFormat" xml:space="preserve">
+    <value>版本 {0}</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>QRKeeper 是一款跨平台二维码收集与管理工具，用于保存二维码内容、从图片或屏幕识别二维码、浏览记录、导出二维码图片，并通过备份、恢复和导入流程保护数据。</value>
+  </data>
+  <data name="Update_Title" xml:space="preserve">
+    <value>在线更新</value>
+  </data>
+  <data name="Update_Check" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="Update_OpenDownload" xml:space="preserve">
+    <value>打开下载</value>
+  </data>
+  <data name="Update_NotChecked" xml:space="preserve">
+    <value>尚未检查更新。</value>
+  </data>
+  <data name="Update_Checking" xml:space="preserve">
+    <value>正在检查 GitHub Releases...</value>
+  </data>
+  <data name="Update_Canceled" xml:space="preserve">
+    <value>已取消检查更新。</value>
+  </data>
+  <data name="Update_AvailableFormat" xml:space="preserve">
+    <value>发现可用版本 {0}。</value>
+  </data>
+  <data name="Update_UpToDateFormat" xml:space="preserve">
+    <value>当前已是最新版本（{0}）。</value>
+  </data>
+  <data name="Sync_Devices" xml:space="preserve">
+    <value>已发现设备</value>
+  </data>
+  <data name="Toast_SyncFailed" xml:space="preserve">
+    <value>同步失败</value>
+  </data>
+  <data name="Sync_Rejected" xml:space="preserve">
+    <value>对方已拒绝同步请求。</value>
+  </data>
+  <data name="Sync_LocalDeviceFormat" xml:space="preserve">
+    <value>{0} - TCP {1}</value>
+  </data>
+  <data name="Sync_NetworkFormat" xml:space="preserve">
+    <value>网络：{0}</value>
+  </data>
+  <data name="Sync_NetworkUnknown" xml:space="preserve">
+    <value>未知网络</value>
+  </data>
+  <data name="Sync_SelectPeerFirst" xml:space="preserve">
+    <value>请先选择已发现的设备。</value>
+  </data>
+  <data name="Settings_AutoAcceptLanSync" xml:space="preserve">
+    <value>自动接受传入的局域网同步请求</value>
+  </data>
+  <data name="Sync_InProgressFormat" xml:space="preserve">
+    <value>正在与 {0} 同步...</value>
+  </data>
+  <data name="Sync_Troubleshooting" xml:space="preserve">
+    <value>如果设备列表一直为空，请检查 Windows 防火墙提示、相同 Wi-Fi/局域网、访客网络或路由器客户端隔离、VPN/代理，以及 Android 本地网络限制。</value>
+  </data>
+  <data name="Sync_ResultFormat" xml:space="preserve">
+    <value>同步完成。新增 {0} 条；跳过 {1} 条。</value>
+  </data>
+  <data name="Settings_AutoAcceptLanSyncDescription" xml:space="preserve">
+    <value>启用后，QRKeeper 会自动接受已发现局域网设备的增量同步请求，不再每次弹窗确认。现有记录不会被覆盖或删除。</value>
+  </data>
+  <data name="Nav_Sync" xml:space="preserve">
+    <value>同步</value>
+  </data>
+  <data name="Settings_Sync" xml:space="preserve">
+    <value>局域网同步</value>
+  </data>
+  <data name="Toast_SyncRejected" xml:space="preserve">
+    <value>同步已拒绝</value>
+  </data>
+  <data name="Sync_Accept" xml:space="preserve">
+    <value>接受</value>
+  </data>
+  <data name="Sync_NotRunning" xml:space="preserve">
+    <value>同步服务未运行。</value>
+  </data>
+  <data name="Sync_Title" xml:space="preserve">
+    <value>局域网同步</value>
+  </data>
+  <data name="Sync_UnknownDevice" xml:space="preserve">
+    <value>未知设备</value>
+  </data>
+  <data name="Sync_NoPeers" xml:space="preserve">
+    <value>尚未发现其他 QRKeeper 设备。请在另一台设备上打开 QRKeeper，并确认两台设备位于同一局域网。</value>
+  </data>
+  <data name="Toast_SyncCompleted" xml:space="preserve">
+    <value>同步完成</value>
+  </data>
+  <data name="Sync_ErrorFormat" xml:space="preserve">
+    <value>同步失败：{0}</value>
+  </data>
+  <data name="Sync_IncomingRequestMessage" xml:space="preserve">
+    <value>是否允许 {0} 与本设备同步 {1} 条记录？同步只会新增缺失记录，不会修改或删除现有记录。</value>
+  </data>
+  <data name="Sync_Ready" xml:space="preserve">
+    <value>同步已就绪。</value>
+  </data>
+  <data name="Sync_IncomingRequestTitle" xml:space="preserve">
+    <value>传入同步请求</value>
+  </data>
+  <data name="Toast_SyncStartFailed" xml:space="preserve">
+    <value>同步启动失败</value>
+  </data>
+  <data name="Sync_Start" xml:space="preserve">
+    <value>同步选中设备</value>
+  </data>
+  <data name="Sync_LocalDevice" xml:space="preserve">
+    <value>本机设备</value>
+  </data>
+</root>

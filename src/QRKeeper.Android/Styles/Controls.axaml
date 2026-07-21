@@ -1,0 +1,421 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:controls="using:QRKeeper.Android.Controls">
+    <Style Selector="Border.app-shell">
+        <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+    </Style>
+
+    <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+    </Style>
+
+    <Style Selector="TextBlock.page-title">
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="TextBlock.caption">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="{DynamicResource AppTextMutedBrush}"/>
+    </Style>
+
+    <Style Selector="TextBlock.secondary">
+        <Setter Property="Foreground" Value="{DynamicResource AppTextMutedBrush}"/>
+    </Style>
+
+    <Style Selector="Border.panel">
+        <Setter Property="Padding" Value="{DynamicResource AppPanelPadding}"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource AppPanelCornerRadius}"/>
+        <Setter Property="Background" Value="{DynamicResource AppCardBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BoxShadow" Value="0 8 24 0 #14000000"/>
+    </Style>
+
+    <Style Selector="Border.form-card">
+        <Setter Property="Padding" Value="16"/>
+        <Setter Property="CornerRadius" Value="22"/>
+        <Setter Property="Background" Value="{DynamicResource AppCardBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BoxShadow" Value="0 10 26 0 #12000000"/>
+    </Style>
+
+    <Style Selector="Border.info-strip">
+        <Setter Property="Padding" Value="12,10"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Background" Value="{DynamicResource AppComponentBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style Selector="Border.list-card">
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Background" Value="{DynamicResource AppComponentBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="0,4"/>
+    </Style>
+
+    <Style Selector="Border.value-pill">
+        <Setter Property="Padding" Value="10,4"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Background" Value="{DynamicResource AppComponentBrush}"/>
+    </Style>
+
+    <Style Selector="Border.bottom-tab-bar">
+        <Setter Property="Padding" Value="7"/>
+        <Setter Property="CornerRadius" Value="24"/>
+        <Setter Property="Background" Value="{DynamicResource AppCardBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BoxShadow" Value="0 12 28 0 #1A000000"/>
+    </Style>
+
+    <Style Selector="Grid.record-item">
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+
+    <Style Selector="Border.record-card">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="14"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Background" Value="{DynamicResource AppCardBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BoxShadow" Value="0 8 20 0 #10000000"/>
+    </Style>
+
+    <Style Selector="Border.record-card.selected">
+        <Setter Property="Background" Value="{DynamicResource AppSelectedBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+    </Style>
+
+    <Style Selector="Border.record-card.reordering">
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Opacity" Value="0.9"/>
+        <Setter Property="BoxShadow" Value="0 14 30 0 #26000000"/>
+    </Style>
+
+    <Style Selector="Border.record-card.selected TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AppSelectedForegroundBrush}"/>
+    </Style>
+
+    <Style Selector="Path.reorder-insert-line">
+        <Setter Property="Height" Value="4"/>
+        <Setter Property="Stroke" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="StrokeThickness" Value="3"/>
+        <Setter Property="StrokeDashArray" Value="3,3"/>
+        <Setter Property="StrokeLineCap" Value="Round"/>
+    </Style>
+
+    <Style Selector="Path.reorder-insert-line.before">
+        <Setter Property="Margin" Value="0,-6,0,4"/>
+    </Style>
+
+    <Style Selector="Path.reorder-insert-line.after">
+        <Setter Property="Margin" Value="0,4,0,-6"/>
+    </Style>
+
+    <Style Selector="Border.record-drag-handle">
+        <Setter Property="Width" Value="34"/>
+        <Setter Property="Height" Value="44"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style Selector="Border.record-drag-handle:pointerover">
+        <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}"/>
+    </Style>
+
+    <Style Selector="Thumb.record-drag-thumb">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="44"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"/>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Border.settings-card">
+        <Setter Property="Padding" Value="16"/>
+        <Setter Property="CornerRadius" Value="22"/>
+        <Setter Property="Background" Value="{DynamicResource AppCardBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BoxShadow" Value="0 10 26 0 #12000000"/>
+    </Style>
+
+    <Style Selector="controls|MobileSettingSection">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Spacing="6">
+                    <Grid ColumnDefinitions="*,Auto" Margin="4,0">
+                        <TextBlock Text="{TemplateBinding Title}"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1"
+                                   Text="{TemplateBinding Value}"
+                                   Classes="caption"
+                                   VerticalAlignment="Center"/>
+                    </Grid>
+                    <Border Classes="settings-card">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </Border>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Border.toast-card">
+        <Setter Property="CornerRadius" Value="18"/>
+        <Setter Property="Padding" Value="14"/>
+        <Setter Property="BoxShadow" Value="0 12 28 0 #26000000"/>
+    </Style>
+
+    <Style Selector="ItemsControl.records-list">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style Selector="Button.setting-option">
+        <Setter Property="MinHeight" Value="48"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="14,11"/>
+        <Setter Property="Margin" Value="0,3"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+    </Style>
+
+    <Style Selector="Button.setting-option:pointerover">
+        <Setter Property="Background" Value="{DynamicResource AppComponentBrush}"/>
+    </Style>
+
+    <Style Selector="Button.setting-option:pressed">
+        <Setter Property="Background" Value="{DynamicResource AppPressedBrush}"/>
+    </Style>
+
+    <Style Selector="Border.setting-segment">
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Background" Value="{DynamicResource AppComponentBrush}"/>
+    </Style>
+
+    <Style Selector="Button.setting-segment-option">
+        <Setter Property="MinHeight" Value="42"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="10,8"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="Button.setting-segment-option:pressed">
+        <Setter Property="Background" Value="{DynamicResource AppPressedBrush}"/>
+    </Style>
+
+    <Style Selector="CheckBox.setting-option">
+        <Setter Property="MinHeight" Value="36"/>
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="Margin" Value="0,4"/>
+    </Style>
+
+    <Style Selector="Button.primary">
+        <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource AppControlCornerRadius}"/>
+        <Setter Property="Padding" Value="18,11"/>
+        <Setter Property="MinHeight" Value="44"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="Button.primary:pressed">
+        <Setter Property="Opacity" Value="0.88"/>
+    </Style>
+
+    <Style Selector="Button.primary TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AppOnAccentBrush}"/>
+    </Style>
+
+    <Style Selector="Button.secondary">
+        <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentSoftBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource AppControlCornerRadius}"/>
+        <Setter Property="Padding" Value="18,11"/>
+        <Setter Property="MinHeight" Value="44"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="Button.secondary:pressed">
+        <Setter Property="Background" Value="{DynamicResource AppPressedBrush}"/>
+    </Style>
+
+    <Style Selector="Button.secondary TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}"/>
+    </Style>
+
+    <Style Selector="Button.mini">
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="Padding" Value="8,5"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+
+    <Style Selector="Button.icon-button">
+        <Setter Property="Width" Value="36"/>
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="MinWidth" Value="36"/>
+        <Setter Property="MinHeight" Value="36"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="18"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="Button.icon-button:pointerover">
+        <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+
+    <Style Selector="Button.icon-button.mini">
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="MinWidth" Value="30"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+    <Style Selector="Button.confirm">
+        <Setter Property="Background" Value="{DynamicResource AppSuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppSuccessBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource AppControlCornerRadius}"/>
+        <Setter Property="Padding" Value="18,11"/>
+        <Setter Property="MinHeight" Value="44"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="Button.confirm TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AppOnAccentBrush}"/>
+    </Style>
+
+    <Style Selector="Button.danger">
+        <Setter Property="Background" Value="{DynamicResource AppDangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDangerBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource AppControlCornerRadius}"/>
+        <Setter Property="Padding" Value="18,11"/>
+        <Setter Property="MinHeight" Value="44"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="Button.danger TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AppOnAccentBrush}"/>
+    </Style>
+
+    <Style Selector="Button.bottom-tab">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Padding" Value="6,7"/>
+        <Setter Property="MinHeight" Value="60"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="Button.bottom-tab:pressed">
+        <Setter Property="Background" Value="{DynamicResource AppPressedBrush}"/>
+    </Style>
+
+    <Style Selector="controls|MobileBottomTabButton">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Padding" Value="6,7"/>
+        <Setter Property="MinHeight" Value="60"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                    <StackPanel Spacing="3" HorizontalAlignment="Center">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"/>
+                        <TextBlock Text="{TemplateBinding Label}"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|MobileBottomTabButton:pressed">
+        <Setter Property="Background" Value="{DynamicResource AppPressedBrush}"/>
+    </Style>
+
+    <Style Selector="Button.fab">
+        <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+    <Style Selector="TextBox.form-field">
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Background" Value="{DynamicResource AppCardBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="12,10"/>
+        <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+        <Setter Property="SelectionBrush" Value="{DynamicResource AppAccentSoftBrush}"/>
+    </Style>
+
+    <Style Selector="TextBox.form-field:focus">
+        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+    </Style>
+
+    <Style Selector="ListBox">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+
+    <Style Selector="ListBoxItem">
+        <Setter Property="Margin" Value="0,2"/>
+        <Setter Property="CornerRadius" Value="14"/>
+    </Style>
+
+    <Style Selector="CheckBox">
+        <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+</Styles>

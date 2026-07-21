@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:QRKeeper.UI.ViewModels"
+             x:Class="QRKeeper.UI.Views.BackupView"
+             x:DataType="vm:BackupViewModel">
+	<Grid RowDefinitions="Auto,*" Margin="{DynamicResource PagePadding}">
+		<StackPanel>
+			<TextBlock Classes="section-title" Text="{DynamicResource Backup_Title}"/>
+			<Border Classes="panel">
+				<StackPanel>
+					<TextBlock Classes="label" Text="{DynamicResource Backup_DefaultDirectory}"/>
+					<Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+						<TextBox Text="{Binding DefaultBackupDirectory}"
+                                 IsReadOnly="True"/>
+						<Button Grid.Column="1"
+                                Content="{DynamicResource Common_Browse}"
+                                Classes="secondary"
+                                Command="{Binding ChooseBackupDirectoryCommand}"/>
+					</Grid>
+					<StackPanel Orientation="Horizontal" Margin="0,12,0,0">
+						<Button Content="{DynamicResource Backup_Create}" Classes="primary" Command="{Binding CreateBackupCommand}"/>
+						<Button Content="{DynamicResource Backup_Restore}" Classes="danger" Command="{Binding RestoreCommand}" Margin="8,0,0,0"/>
+						<Button Content="{DynamicResource Backup_PreviewImport}"
+                                Classes="secondary"
+                                Command="{Binding PreviewImportCommand}"
+                                IsVisible="{Binding HasNoImportPreview}"
+                                Margin="8,0,0,0"/>
+						<Button Content="{DynamicResource Backup_CancelPreview}"
+                                Classes="danger"
+                                Command="{Binding PreviewImportCommand}"
+                                IsVisible="{Binding HasImportPreview}"
+                                Margin="8,0,0,0"/>
+						<Button Content="{DynamicResource Backup_ImportSelected}" Classes="confirm" Command="{Binding ImportSelectedCommand}" Margin="8,0,0,0"/>
+					</StackPanel>
+					<TextBlock Text="{DynamicResource Backup_RestoreWarning}"
+                               Opacity="0.75"
+                               Margin="0,12,0,0"/>
+					<TextBlock Text="{DynamicResource Backup_RestoreSafetyNote}"
+                               Opacity="0.75"
+                               TextWrapping="Wrap"
+                               Margin="0,4,0,0"/>
+					<TextBlock Text="{Binding ManifestText}" Margin="0,12,0,0"/>
+					<TextBlock Text="{Binding StatusText}" Opacity="0.75" Margin="0,4,0,0"/>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+
+		<Border Grid.Row="1" Classes="panel" Margin="0,16,0,0" IsVisible="{Binding HasImportPreview}">
+			<ListBox ItemsSource="{Binding PreviewItems}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Grid ColumnDefinitions="Auto,*,Auto" Margin="0,6">
+							<CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" VerticalAlignment="Center"/>
+							<StackPanel Grid.Column="1" Margin="10,0,0,0">
+								<TextBlock Text="{Binding Record.Name}" FontWeight="SemiBold"/>
+								<TextBlock Text="{Binding Record.Content}" TextTrimming="CharacterEllipsis" Opacity="0.72"/>
+							</StackPanel>
+							<TextBlock Grid.Column="2"
+                                       Text="{Binding IsDuplicate}"
+                                       Opacity="0.75"
+                                       VerticalAlignment="Center"/>
+						</Grid>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Border>
+	</Grid>
+</UserControl>

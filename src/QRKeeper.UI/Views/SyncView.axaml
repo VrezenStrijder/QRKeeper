@@ -1,0 +1,70 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:QRKeeper.UI.ViewModels"
+             xmlns:models="using:QRKeeper.Core.Models"
+             x:Class="QRKeeper.UI.Views.SyncView"
+             x:DataType="vm:SyncViewModel">
+    <Grid RowDefinitions="Auto,*" Margin="{DynamicResource PagePadding}" RowSpacing="14">
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+            <StackPanel>
+                <TextBlock Classes="section-title" Text="{DynamicResource Sync_Title}"/>
+                <TextBlock Text="{Binding StatusText}" Opacity="0.75"/>
+            </StackPanel>
+            <Button Grid.Column="1"
+                    Content="{DynamicResource Common_Refresh}"
+                    Classes="secondary"
+                    Command="{Binding RefreshPeersCommand}"/>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="1.1*,0.9*" ColumnSpacing="14">
+            <Border Classes="panel">
+                <Grid RowDefinitions="Auto,*">
+                    <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,10">
+                        <TextBlock Classes="label" Text="{DynamicResource Sync_Devices}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Peers.Count}" Opacity="0.72"/>
+                    </Grid>
+                    <ListBox Grid.Row="1"
+                             ItemsSource="{Binding Peers}"
+                             SelectedItem="{Binding SelectedPeer, Mode=TwoWay}"
+                             IsVisible="{Binding HasPeers}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:SyncDeviceInfo">
+                                <Grid ColumnDefinitions="*,Auto" Margin="4,8">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding DeviceName}" FontWeight="SemiBold"/>
+                                        <TextBlock Text="{Binding Platform}" Opacity="0.72"/>
+                                        <TextBlock Text="{Binding NetworkName}" Opacity="0.72"/>
+                                        <TextBlock Text="{Binding Endpoint}" Opacity="0.62"/>
+                                    </StackPanel>
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding TransportPort}"
+                                               Opacity="0.72"
+                                               VerticalAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock Grid.Row="1"
+                               Text="{DynamicResource Sync_NoPeers}"
+                               TextWrapping="Wrap"
+                               Opacity="0.72"
+                               IsVisible="{Binding HasNoPeers}"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="1" Classes="panel">
+                <StackPanel Spacing="12">
+                    <TextBlock Classes="label" Text="{DynamicResource Sync_LocalDevice}"/>
+                    <TextBlock Text="{Binding LocalDeviceText}" TextWrapping="Wrap"/>
+                    <TextBlock Text="{Binding CurrentNetworkText}" TextWrapping="Wrap" Opacity="0.75"/>
+                    <Button Content="{DynamicResource Sync_Start}"
+                            Classes="primary"
+                            Command="{Binding StartSyncCommand}"/>
+                    <TextBlock Text="{DynamicResource Sync_Troubleshooting}"
+                               TextWrapping="Wrap"
+                               Opacity="0.75"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

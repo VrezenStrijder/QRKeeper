@@ -1,0 +1,12 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="QRKeeper.Android.App"
+             RequestedThemeVariant="Default">
+    <Application.Styles>
+        <FluentTheme/>
+        <materialIcons:MaterialIconStyles/>
+        <StyleInclude Source="avares://QRKeeper.Android/Styles/Tokens.axaml"/>
+        <StyleInclude Source="avares://QRKeeper.Android/Styles/Controls.axaml"/>
+    </Application.Styles>
+</Application>

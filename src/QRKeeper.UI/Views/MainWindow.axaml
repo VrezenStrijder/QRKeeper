@@ -1,0 +1,66 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:QRKeeper.UI.ViewModels"
+        xmlns:fa="using:FluentAvalonia.UI.Controls"
+        x:Class="QRKeeper.UI.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Width="1180"
+        Height="760"
+        MinWidth="960"
+        MinHeight="640"
+        Title="{DynamicResource App_Title}">
+
+    <Grid>
+        <fa:NavigationView x:Name="RootNavigation"
+                           PaneTitle="{DynamicResource App_Title}"
+                           PaneDisplayMode="Left"
+                           OpenPaneLength="188"
+                           CompactPaneLength="48"
+                           IsBackButtonVisible="False"
+                           IsSettingsVisible="False"
+                           SelectionChanged="RootNavigation_OnSelectionChanged">
+            <fa:NavigationView.MenuItems>
+                <fa:NavigationViewItem Content="{DynamicResource Nav_Home}" Tag="Home" IsSelected="True">
+                    <fa:NavigationViewItem.IconSource>
+                        <fa:SymbolIconSource Symbol="Home"/>
+                    </fa:NavigationViewItem.IconSource>
+                </fa:NavigationViewItem>
+                <fa:NavigationViewItem Content="{DynamicResource Nav_Sync}" Tag="Sync">
+                    <fa:NavigationViewItem.IconSource>
+                        <fa:SymbolIconSource Symbol="Sync"/>
+                    </fa:NavigationViewItem.IconSource>
+                </fa:NavigationViewItem>
+                <fa:NavigationViewItem Content="{DynamicResource Nav_Backup}" Tag="Backup">
+                    <fa:NavigationViewItem.IconSource>
+                        <fa:SymbolIconSource Symbol="Save"/>
+                    </fa:NavigationViewItem.IconSource>
+                </fa:NavigationViewItem>
+                <fa:NavigationViewItem Content="{DynamicResource Nav_Settings}" Tag="Settings">
+                    <fa:NavigationViewItem.IconSource>
+                        <fa:SymbolIconSource Symbol="Setting"/>
+                    </fa:NavigationViewItem.IconSource>
+                </fa:NavigationViewItem>
+                <fa:NavigationViewItem Content="{DynamicResource Nav_About}" Tag="About">
+                    <fa:NavigationViewItem.IconSource>
+                        <fa:SymbolIconSource Symbol="Help"/>
+                    </fa:NavigationViewItem.IconSource>
+                </fa:NavigationViewItem>
+            </fa:NavigationView.MenuItems>
+
+            <ContentControl Content="{Binding CurrentPage}"/>
+        </fa:NavigationView>
+
+        <ItemsControl Classes="toast-host top-right"
+                      ItemsSource="{Binding TopRightMessages}"
+                      IsHitTestVisible="False"/>
+        <ItemsControl Classes="toast-host top-center"
+                      ItemsSource="{Binding TopCenterMessages}"
+                      IsHitTestVisible="False"/>
+        <ItemsControl Classes="toast-host bottom-right"
+                      ItemsSource="{Binding BottomRightMessages}"
+                      IsHitTestVisible="False"/>
+        <ItemsControl Classes="toast-host bottom-center"
+                      ItemsSource="{Binding BottomCenterMessages}"
+                      IsHitTestVisible="False"/>
+    </Grid>
+</Window>

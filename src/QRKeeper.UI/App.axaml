@@ -1,0 +1,37 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="QRKeeper.UI.App"
+             xmlns:local="using:QRKeeper.UI"
+             xmlns:vm="using:QRKeeper.UI.ViewModels"
+             xmlns:styling="using:FluentAvalonia.Styling"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+        <DataTemplate DataType="vm:ToastMessageViewModel">
+            <Border Classes="toast" Background="{Binding BackgroundBrush}">
+                <Grid ColumnDefinitions="4,*">
+                    <Border Classes="toast-accent" Background="{Binding AccentBrush}"/>
+                    <StackPanel Grid.Column="1" Margin="12,10">
+                        <TextBlock Text="{Binding Title}"
+                                   FontWeight="SemiBold"
+                                   Foreground="{Binding ForegroundBrush}"
+                                   TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Body}"
+                                   Opacity="0.82"
+                                   Foreground="{Binding ForegroundBrush}"
+                                   TextWrapping="Wrap"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <styling:FluentAvaloniaTheme />
+        <StyleInclude Source="avares://QRKeeper.UI/Styles/Tokens.axaml"/>
+        <StyleInclude Source="avares://QRKeeper.UI/Styles/Controls.axaml"/>
+    </Application.Styles>
+</Application>

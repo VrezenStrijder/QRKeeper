@@ -1,0 +1,178 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:QRKeeper.UI.ViewModels"
+             xmlns:models="using:QRKeeper.Core.Models"
+             xmlns:controls="using:QRKeeper.UI.Controls"
+             x:Class="QRKeeper.UI.Views.HomeView"
+             x:DataType="vm:HomeViewModel"
+             DragDrop.AllowDrop="True"
+             DragDrop.DragOver="HomeView_OnDragOver"
+             DragDrop.Drop="HomeView_OnDrop">
+    <Grid RowDefinitions="Auto,*" Margin="16">
+        <Grid ColumnDefinitions="Auto,Auto,*,Auto" ColumnSpacing="8" Margin="0,0,0,8">
+            <Button Content="{DynamicResource Home_ImportImage}"
+                    Classes="primary"
+                    Command="{Binding ImportImageCommand}"/>
+            <Button Grid.Column="1"
+                    Content="{DynamicResource Home_RecognizeScreen}"
+                    Classes="primary"
+                    Command="{Binding ImportScreenCommand}"/>
+            <TextBox Grid.Column="2"
+                     Watermark="{DynamicResource Home_SearchWatermark}"
+                     Text="{Binding SearchText, Mode=TwoWay}"/>
+            <Button Grid.Column="3"
+                    Content="{DynamicResource Common_Refresh}"
+                    Classes="secondary"
+                    Command="{Binding RefreshCommand}"/>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="320,*" ColumnSpacing="12">
+            <Border Classes="panel">
+                <Grid RowDefinitions="Auto,Auto,*">
+                    <TextBlock Classes="section-title" Text="{DynamicResource Home_Records}"/>
+                    <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="8" Margin="0,0,0,10">
+                        <TextBox Text="{Binding NewContent, Mode=TwoWay}"
+                                 Watermark="{DynamicResource Home_PasteContentWatermark}"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 MinHeight="42"/>
+                        <Button Grid.Column="1"
+                                Content="{DynamicResource Common_Save}"
+                                Classes="primary"
+                                Command="{Binding SaveNewCommand}"
+                                VerticalAlignment="Top"/>
+                    </Grid>
+                    <controls:ReorderableList x:Name="RecordList"
+                                              Grid.Row="2"
+                                              ItemsSource="{Binding Records}"
+                                              SelectedItem="{Binding SelectedRecord, Mode=TwoWay}"
+                                              ReorderCompleted="RecordList_OnReorderCompleted">
+                        <controls:ReorderableList.ItemTemplate>
+                            <DataTemplate x:DataType="models:QRRecord">
+                                <Grid Classes="reorderable-list-item"
+                                      RowDefinitions="Auto,Auto,Auto">
+                                    <Border Grid.Row="0"
+                                            Classes="reorder-insert-line before"/>
+                                    <Border Grid.Row="1"
+                                            Classes="reorderable-list-card">
+                                        <Grid ColumnDefinitions="26,44,*">
+                                            <Border Classes="reorder-drag-handle"
+                                                    Width="20"
+                                                    Height="34"
+                                                    CornerRadius="5"
+                                                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}">
+                                                <TextBlock Text="::"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           FontSize="13"
+                                                           FontWeight="SemiBold"
+                                                           Opacity="0.7"/>
+                                            </Border>
+                                            <Border Grid.Column="1"
+                                                    Width="34"
+                                                    Height="34"
+                                                    CornerRadius="5"
+                                                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}">
+                                                <TextBlock Text="QR"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           FontSize="11"
+                                                           FontWeight="SemiBold"/>
+                                            </Border>
+                                            <StackPanel Grid.Column="2" Spacing="1">
+                                                <TextBlock Text="{Binding Name}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+                                                <TextBlock Text="{Binding ContentType}" Opacity="0.72" FontSize="12"/>
+                                                <TextBlock Text="{Binding CreatedAt}" Opacity="0.62" FontSize="12"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2"
+                                            Classes="reorder-insert-line after"/>
+                                </Grid>
+                            </DataTemplate>
+                        </controls:ReorderableList.ItemTemplate>
+                    </controls:ReorderableList>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Column="1" RowDefinitions="Auto,*" RowSpacing="12">
+                <Border Classes="panel">
+                    <Grid>
+                        <Border Classes="capture-zone">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                                <TextBlock Text="{DynamicResource Home_CaptureTitle}"
+                                           FontWeight="SemiBold"
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding CaptureStatusText}"
+                                           Opacity="0.78"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1" Classes="panel">
+                    <Grid RowDefinitions="Auto,*">
+                        <TextBlock Classes="section-title" Text="{DynamicResource Home_Detail}"/>
+                        <ScrollViewer Grid.Row="1">
+                            <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="172,*" ColumnSpacing="12">
+                                <Border Width="160"
+                                        Height="160"
+                                        CornerRadius="{DynamicResource PanelCornerRadius}"
+                                        Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top">
+                                    <Image Source="{Binding SelectedImage}"
+                                           Width="148"
+                                           Height="148"
+                                           Stretch="Uniform"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </Border>
+
+                                <Grid Grid.Column="1" RowDefinitions="Auto,Auto" ColumnDefinitions="*,150" ColumnSpacing="10">
+                                    <StackPanel>
+                                        <TextBlock Classes="label" Text="{DynamicResource Field_Name}"/>
+                                        <TextBox Classes="form-field"
+                                                 Text="{Binding EditName, Mode=TwoWay}"
+                                                 MaxLength="100"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Classes="label" Text="{DynamicResource Field_Type}"/>
+                                        <TextBlock Text="{Binding SelectedContentType}" Margin="0,6,0,8"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+                                        <TextBlock Classes="label" Text="{DynamicResource Field_Content}"/>
+                                        <TextBox Text="{Binding SelectedContent}"
+                                                 IsReadOnly="True"
+                                                 AcceptsReturn="True"
+                                                 TextWrapping="Wrap"
+                                                 MinHeight="64"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+                                    <TextBlock Classes="label" Text="{DynamicResource Field_Note}"/>
+                                    <TextBox Text="{Binding EditNote, Mode=TwoWay}"
+                                             AcceptsReturn="True"
+                                             TextWrapping="Wrap"
+                                             MaxLength="500"
+                                             MinHeight="66"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                                    <Button Content="{DynamicResource Home_SaveChanges}" Classes="confirm" Command="{Binding SaveEditCommand}"/>
+                                    <Button Content="{DynamicResource Home_ExportImage}" Classes="secondary" Command="{Binding ExportImageCommand}" Margin="8,0,0,0"/>
+                                    <Button Content="{DynamicResource Common_Delete}" Classes="danger" Command="{Binding DeleteSelectedCommand}" Margin="8,0,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

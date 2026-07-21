@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="QRKeeper.UI.Views.FluentDialogWindow"
+        Width="440"
+        SizeToContent="Height"
+        MinHeight="210"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        ShowInTaskbar="False">
+    <Border Classes="panel"
+            Margin="12"
+            Padding="20">
+        <Grid RowDefinitions="Auto,*,Auto">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                <Border x:Name="IconHost"
+                        Width="30"
+                        Height="30"
+                        CornerRadius="15"
+                        VerticalAlignment="Top">
+                    <TextBlock x:Name="IconText"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="18"
+                               FontWeight="SemiBold"/>
+                </Border>
+                <TextBlock x:Name="TitleText"
+                           Grid.Column="1"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           TextWrapping="Wrap"/>
+            </Grid>
+
+            <TextBlock x:Name="MessageText"
+                       Grid.Row="1"
+                       Margin="42,12,0,22"
+                       Opacity="0.82"
+                       MaxWidth="360"
+                       TextWrapping="Wrap"/>
+
+            <StackPanel x:Name="ButtonPanel"
+                        Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Spacing="8"/>
+        </Grid>
+    </Border>
+</Window>

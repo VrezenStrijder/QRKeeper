@@ -1,0 +1,70 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:QRKeeper.UI.ViewModels"
+             x:Class="QRKeeper.UI.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+    <StackPanel Margin="{DynamicResource PagePadding}" MaxWidth="960" HorizontalAlignment="Stretch">
+        <TextBlock Classes="section-title" Text="{DynamicResource Settings_Title}"/>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="14" RowSpacing="14">
+            <Border Classes="panel">
+                <StackPanel>
+                    <TextBlock Classes="label" Text="{DynamicResource Settings_Theme}" Margin="0,0,0,8"/>
+                    <StackPanel Orientation="Horizontal" Spacing="14">
+                        <RadioButton Content="{DynamicResource Theme_System}"
+                                     GroupName="Theme"
+                                     IsChecked="{Binding IsSystemTheme, Mode=TwoWay}"/>
+                        <RadioButton Content="{DynamicResource Theme_Light}"
+                                     GroupName="Theme"
+                                     IsChecked="{Binding IsLightTheme, Mode=TwoWay}"/>
+                        <RadioButton Content="{DynamicResource Theme_Dark}"
+                                     GroupName="Theme"
+                                     IsChecked="{Binding IsDarkTheme, Mode=TwoWay}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" Classes="panel">
+                <StackPanel>
+                    <TextBlock Classes="label" Text="{DynamicResource Settings_ColorStyle}" Margin="0,0,0,8"/>
+                    <StackPanel Orientation="Horizontal" Spacing="14">
+                        <RadioButton Content="{DynamicResource ColorStyle_Ocean}"
+                                     GroupName="ColorStyle"
+                                     IsChecked="{Binding IsOceanColorStyle, Mode=TwoWay}"/>
+                        <RadioButton Content="{DynamicResource ColorStyle_Forest}"
+                                     GroupName="ColorStyle"
+                                     IsChecked="{Binding IsForestColorStyle, Mode=TwoWay}"/>
+                        <RadioButton Content="{DynamicResource ColorStyle_Rose}"
+                                     GroupName="ColorStyle"
+                                     IsChecked="{Binding IsRoseColorStyle, Mode=TwoWay}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1" Classes="panel">
+                <StackPanel>
+                    <TextBlock Classes="label" Text="{DynamicResource Settings_Language}" Margin="0,0,0,8"/>
+                    <StackPanel Orientation="Horizontal" Spacing="14">
+                        <RadioButton Content="{DynamicResource Language_Chinese}"
+                                     GroupName="Language"
+                                     IsChecked="{Binding IsChineseLanguage, Mode=TwoWay}"/>
+                        <RadioButton Content="{DynamicResource Language_English}"
+                                     GroupName="Language"
+                                     IsChecked="{Binding IsEnglishLanguage, Mode=TwoWay}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="1" Classes="panel">
+                <StackPanel>
+                    <TextBlock Classes="label" Text="{DynamicResource Settings_Sync}" Margin="0,0,0,8"/>
+                    <CheckBox Content="{DynamicResource Settings_AutoAcceptLanSync}"
+                              IsChecked="{Binding AutoAcceptLanSyncRequests, Mode=TwoWay}"/>
+                    <TextBlock Text="{DynamicResource Settings_AutoAcceptLanSyncDescription}"
+                               TextWrapping="Wrap"
+                               Opacity="0.72"
+                               Margin="0,8,0,0"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </StackPanel>
+</UserControl>

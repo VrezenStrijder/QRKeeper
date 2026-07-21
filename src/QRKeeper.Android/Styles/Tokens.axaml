@@ -1,0 +1,36 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <Thickness x:Key="AppPagePadding">16</Thickness>
+        <Thickness x:Key="AppPanelPadding">16</Thickness>
+        <CornerRadius x:Key="AppControlCornerRadius">18</CornerRadius>
+        <CornerRadius x:Key="AppPanelCornerRadius">22</CornerRadius>
+        <x:Double x:Key="AppQrPreviewSize">180</x:Double>
+        <SolidColorBrush x:Key="AppAccentBrush" Color="#2F6FED"/>
+        <SolidColorBrush x:Key="AppAccentSoftBrush" Color="#DCE7FF"/>
+        <SolidColorBrush x:Key="AppOnAccentBrush" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="AppSelectedBrush" Color="#DCE7FF"/>
+        <SolidColorBrush x:Key="AppSelectedForegroundBrush" Color="#172033"/>
+        <SolidColorBrush x:Key="AppTextBrush" Color="#172033"/>
+        <SolidColorBrush x:Key="AppSurfaceBrush" Color="#F5F8FF"/>
+        <SolidColorBrush x:Key="AppSurfaceAltBrush" Color="#E7EEFC"/>
+        <SolidColorBrush x:Key="AppCardBrush" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="AppComponentBrush" Color="#EEF3FF"/>
+        <SolidColorBrush x:Key="AppPressedBrush" Color="#D7E3FA"/>
+        <SolidColorBrush x:Key="AppBorderBrush" Color="#A8B9D8"/>
+        <SolidColorBrush x:Key="AppDividerBrush" Color="#D5DEF1"/>
+        <SolidColorBrush x:Key="AppTextMutedBrush" Color="#63708A"/>
+        <SolidColorBrush x:Key="AppDangerBrush" Color="#B3261E"/>
+        <SolidColorBrush x:Key="AppDangerSoftBrush" Color="#FCE8E6"/>
+        <SolidColorBrush x:Key="AppSuccessBrush" Color="#237B4B"/>
+        <SolidColorBrush x:Key="AppSuccessSoftBrush" Color="#E4F4EA"/>
+        <SolidColorBrush x:Key="AppWarningBrush" Color="#A56300"/>
+        <SolidColorBrush x:Key="AppWarningSoftBrush" Color="#FFF2D7"/>
+        <SolidColorBrush x:Key="AppToastInfoBackgroundBrush" Color="#EEF5FF"/>
+        <SolidColorBrush x:Key="AppToastSuccessBackgroundBrush" Color="#EAF7EF"/>
+        <SolidColorBrush x:Key="AppToastWarningBackgroundBrush" Color="#FFF5DD"/>
+        <SolidColorBrush x:Key="AppToastErrorBackgroundBrush" Color="#FDEBE9"/>
+        <SolidColorBrush x:Key="AppDialogOverlayBrush" Color="#80000000"/>
+        <SolidColorBrush x:Key="AppDialogBrush" Color="#FFFFFF"/>
+    </Styles.Resources>
+</Styles>
