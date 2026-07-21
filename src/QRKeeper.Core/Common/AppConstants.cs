@@ -3,7 +3,7 @@ namespace QRKeeper.Core.Common;
 public static class AppConstants
 {
     public const string AppName = "QRKeeper";
-    public const string AppVersion = "1.0.3";
+    public const string AppVersion = "1.0.4";
     public const string UpdateRepositoryOwner = "VrezenStrijder";
     public const string UpdateRepositoryName = "QRKeeper";
     public const string UpdateManifestAssetName = "update.json";
